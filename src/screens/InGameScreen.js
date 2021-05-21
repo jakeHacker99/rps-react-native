@@ -2,7 +2,7 @@ import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 
 import { Button } from "react-native-elements";
-
+// try
 export function InGameScreen() {
   return (
     <View style={styles.fixBackground}>
@@ -13,6 +13,7 @@ export function InGameScreen() {
         >
           Välj sten sax eller påse för att spela{" "}
         </Text>
+        
       </View>
 
       <View style={styles.buttomRow}>
