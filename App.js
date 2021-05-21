@@ -1,33 +1,13 @@
-import { StatusBar } from "expo-status-bar";
-import React, { useState } from "react";
-import { StyleSheet, Text, View, Image, TextInput, Button } from "react-native";
+import React from "react";
+import { StyleSheet, Text, View, Button } from "react-native";
 
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 
 import { Button as Button1 } from "react-native-elements";
 
-function Start({ navigation }) {
-  const title = useState("Rock Paper Scissors");
+import { StartScreen } from "./src/screens/StartScreen";
 
-  return (
-    <View style={styles.container}>
-      <Image style={styles.pic} source={require("./assets/rps.png")} />
-      <View style={styles.title}>
-        <Text style={styles.rock}>Rock </Text>
-        <Text style={styles.paper}>Paper </Text>
-        <Text style={styles.scissors}>Scissors</Text>
-      </View>
-      <TextInput style={styles.input} placeholder={"Write your name"} />
-      <Button
-        style={styles.button}
-        title="Next"
-        onPress={() => navigation.navigate("Menu")}
-      />
-      <StatusBar style="auto" />
-    </View>
-  );
-}
 class Menu extends React.Component {
   handleClick = () => {
     console.log("this is :", this);
@@ -78,6 +58,20 @@ class Menu extends React.Component {
   }
 }
 
+function Start({ navigation }) {
+  return (
+    <>
+      <StartScreen />
+      <Button1
+        title="Start Playing"
+        type={"outline"}
+        style={styles.container}
+        onPress={() => navigation.navigate("Menu")}
+      />
+    </>
+  );
+}
+
 const Stack = createStackNavigator();
 
 function MyStack() {
@@ -123,38 +117,4 @@ const styles = StyleSheet.create({
     marginTop: 120,
     justifyContent: "center",
   },
-
-  rock: {
-    color: "#ffcc00",
-    fontWeight: "bold",
-    fontSize: 20,
-  },
-  paper: {
-    color: "#4db8ff",
-    fontWeight: "bold",
-    fontSize: 20,
-  },
-  scissors: {
-    color: "#ff9900",
-    fontWeight: "bold",
-    fontSize: 20,
-  },
-  pic: {
-    width: 100,
-    height: 100,
-    marginTop: 40,
-  },
-  title: {
-    flexDirection: "row",
-
-    // fontSize: 20,
-    // fontWeight: 'bold',
-  },
-  input: {
-    height: 40,
-    margin: 12,
-    borderWidth: 1,
-    marginTop: 200,
-  },
-  button: {},
 });
