@@ -8,18 +8,8 @@ import { Button as Button1 } from "react-native-elements";
 
 import { StartScreen } from "./src/screens/StartScreen";
 import { MenuScreen } from "./src/screens/MenuScreen";
-
-function Menu() {
-  return (
-    <>
-      <MenuScreen />
-      {/* 
-      
-      
-      */}
-    </>
-  );
-}
+import { InGameScreen } from "./src/screens/InGameScreen";
+import { WinnerScreen } from "./src/screens/WinnerScreen";
 
 function Start({ navigation }) {
   return (
@@ -35,16 +25,38 @@ function Start({ navigation }) {
   );
 }
 
-const Stack = createStackNavigator();
-
-function MyStack() {
+function Menu() {
   return (
-    <Stack.Navigator>
-      <Stack.Screen name="Start" component={Start} />
-      <Stack.Screen name="Menu" component={Menu} />
-    </Stack.Navigator>
+    <>
+      <MenuScreen />
+    </>
   );
 }
+
+function Online() {
+  return (
+    <>
+      <InGameScreen />
+    </>
+  );
+}
+
+function Offline() {
+  return (
+    <>
+      <InGameScreen />
+    </>
+  );
+}
+
+function Winner() {
+  return (
+    <>
+      <WinnerScreen />
+    </>
+  );
+}
+const Stack = createStackNavigator();
 
 export default function App() {
   return (
@@ -52,6 +64,9 @@ export default function App() {
       <Stack.Navigator>
         <Stack.Screen name="Start" component={Start} />
         <Stack.Screen name="Menu" component={Menu} />
+        <Stack.Screen name="Online" component={Online} />
+        <Stack.Screen name="Offline" component={Offline} />
+        <Stack.Screen name="Winner" component={Winner} />
       </Stack.Navigator>
     </NavigationContainer>
   );

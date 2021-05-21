@@ -1,45 +1,37 @@
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 
-import { Button as Button1 } from "react-native-elements";
+import { Button } from "react-native-elements";
 
-export function MenuScreen() {
+export function InGameScreen() {
   return (
     <View style={styles.fixBackground}>
       <View style={styles.container}>
-        <Text style={{ fontSize: 33, marginTop: 50 }}>RPS Jakob-Yazan</Text>
-      </View>
-      <View style={styles.box}>
-        <Button1
-          title="Spela Online"
-          style={{ width: 150, marginTop: 150 }}
-          type={"outline"}
-        />
-
-        <Button1
-          title=" Spela Dator"
-          style={{ width: 150, marginTop: 20 }}
-          type={"outline"}
-        />
+        <Text style={{ fontSize: 31, marginTop: 50 }}>Sten Sax Påse</Text>
+        <Text
+          style={{ fontSize: 22, marginTop: 15, marginLeft: 25, width: 200 }}
+        >
+          Välj sten sax eller påse för att spela{" "}
+        </Text>
       </View>
 
       <View style={styles.buttomRow}>
-        <Button1
-          title="Hem"
+        <Button
+          title="Sten"
           size={15}
-          style={{ height: 50, width: 70, marginTop: 20 }}
+          style={{ height: 50, width: 70, marginTop: 20, marginRight: 20 }}
           type={"outline"}
         />
-        <Button1
-          title="Spel"
+        <Button
+          title="Sax"
           size={15}
-          style={{ height: 50, width: 70, marginTop: 20 }}
-          type={"outline"}
+          style={{ height: 50, width: 70, marginTop: 20, marginRight: 20 }}
+          typeButton={"outline"}
         />
-        <Button1
-          title="Lista"
+        <Button
+          title="Påse"
           size={15}
-          style={{ height: 50, width: 70, marginTop: 20 }}
+          style={{ height: 50, width: 70, marginTop: 20, marginRight: 20 }}
           type={"outline"}
         />
       </View>
@@ -69,5 +61,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     marginTop: 120,
     justifyContent: "center",
+    marginBottom: 250,
+    marginLeft: 20,
   },
 });
