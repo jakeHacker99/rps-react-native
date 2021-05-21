@@ -15,8 +15,6 @@ function Menu() {
       <MenuScreen />
       {/* 
       
-      onPress till alla knappar ska in här
-      
       
       */}
     </>
