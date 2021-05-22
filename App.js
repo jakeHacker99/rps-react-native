@@ -10,17 +10,26 @@ import { StartScreen } from "./src/screens/StartScreen";
 import { MenuScreen } from "./src/screens/MenuScreen";
 import { InGameScreen } from "./src/screens/InGameScreen";
 import { WinnerScreen } from "./src/screens/WinnerScreen";
+import { ListGamesScreen } from "./src/screens/ListGamesScreen";
 
 function Start({ navigation }) {
   return (
     <>
-      <StartScreen />
+      <StartScreen></StartScreen>
       <Button1
         title="Start Playing"
         type={"outline"}
-        style={styles.container}
+        style={styles.rock}
         onPress={() => navigation.navigate("Menu")}
       />
+    </>
+  );
+}
+
+function Games() {
+  return (
+    <>
+      <ListGamesScreen />
     </>
   );
 }
@@ -62,11 +71,13 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
+        <Stack.Screen name="Games" component={Games} />
         <Stack.Screen name="Start" component={Start} />
-        <Stack.Screen name="Menu" component={Menu} />
-        <Stack.Screen name="Online" component={Online} />
-        <Stack.Screen name="Offline" component={Offline} />
         <Stack.Screen name="Winner" component={Winner} />
+
+        <Stack.Screen name="Online" component={Online} />
+        <Stack.Screen name="Menu" component={Menu} />
+        <Stack.Screen name="Offline" component={Offline} />
       </Stack.Navigator>
     </NavigationContainer>
   );

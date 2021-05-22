@@ -28,7 +28,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   rock: {
-    color: "#ffcc00",
+    backgroundColor: "#00FF7F",
     fontWeight: "bold",
     fontSize: 20,
   },
