@@ -1,5 +1,5 @@
-import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import React, { useState } from "react";
+import { StyleSheet, TextInput } from "react-native";
 
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
@@ -11,15 +11,31 @@ import { MenuScreen } from "./src/screens/MenuScreen";
 import { InGameScreen } from "./src/screens/InGameScreen";
 import { WinnerScreen } from "./src/screens/WinnerScreen";
 import { ListGamesScreen } from "./src/screens/ListGamesScreen";
+import { render } from "react-dom";
 
 function Start({ navigation }) {
+  const [nickName, setNickName] = useState("");
+
+  const nameHandler = (name) => {
+    setNickName(name);
+    console.log(name);
+  };
+
   return (
     <>
       <StartScreen></StartScreen>
+      <TextInput
+        style={{ height: 40, margin: 12, borderWidth: 1, marginTop: 120 }}
+        placeholder={
+          this.nickName == null ? nameHandler() : this.nickName == nickName
+        }
+      />
+      this.nickName==null || this.nickName.length {">"}=3: return (
+      <Button1 title="Enter Name Please!" type={"outline"} />
+      ):
       <Button1
         title="Start Playing"
         type={"outline"}
-        style={styles.rock}
         onPress={() => navigation.navigate("Menu")}
       />
     </>
@@ -71,8 +87,8 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen name="Games" component={Games} />
         <Stack.Screen name="Start" component={Start} />
+        <Stack.Screen name="Games" component={Games} />
         <Stack.Screen name="Winner" component={Winner} />
 
         <Stack.Screen name="Online" component={Online} />

@@ -14,7 +14,6 @@ export function StartScreen() {
         <Text style={styles.paper}>Paper </Text>
         <Text style={styles.scissors}>Scissors</Text>
       </View>
-      <TextInput style={styles.input} placeholder={"Write your name"} />
 
       <StatusBar style="auto" />
     </View>
@@ -28,7 +27,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   rock: {
-    backgroundColor: "#00FF7F",
+    color: "#ffcc00",
     fontWeight: "bold",
     fontSize: 20,
   },
@@ -50,11 +49,6 @@ const styles = StyleSheet.create({
   title: {
     flexDirection: "row",
   },
-  input: {
-    height: 40,
-    margin: 12,
-    borderWidth: 1,
-    marginTop: 200,
-  },
+
   button: {},
 });

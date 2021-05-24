@@ -70,4 +70,7 @@ const styles = StyleSheet.create({
     marginTop: 120,
     justifyContent: "center",
   },
+  buttonColor: {
+    backgroundColor: "#00ff00",
+  },
 });
