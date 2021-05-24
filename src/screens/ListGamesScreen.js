@@ -30,27 +30,6 @@ export function ListGamesScreen() {
         <Text style={{ fontSize: 23, marginTop: 20 }}>Yazan vann med: </Text>
         <Image style={styles.pic} source={require("../../assets/paper.gif")} />
       </View>
-
-      <View style={styles.buttomRow}>
-        <Button1
-          title="Hem"
-          size={15}
-          style={{ height: 50, width: 70, marginTop: 20 }}
-          type={"outline"}
-        />
-        <Button1
-          title="Spel"
-          size={15}
-          style={{ height: 50, width: 70, marginTop: 20 }}
-          type={"outline"}
-        />
-        <Button1
-          title="Lista"
-          size={15}
-          style={{ height: 50, width: 70, marginTop: 20 }}
-          type={"outline"}
-        />
-      </View>
     </View>
   );
 }

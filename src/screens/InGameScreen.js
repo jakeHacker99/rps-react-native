@@ -13,7 +13,6 @@ export function InGameScreen() {
         >
           Välj sten sax eller påse för att spela{" "}
         </Text>
-        
       </View>
 
       <View style={styles.buttomRow}>

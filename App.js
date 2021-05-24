@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import { StyleSheet, TextInput } from "react-native";
+import { StyleSheet, TextInput, View } from "react-native";
 
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 
-import { Button as Button1 } from "react-native-elements";
+import { Button } from "react-native-elements";
 
 import { StartScreen } from "./src/screens/StartScreen";
 import { MenuScreen } from "./src/screens/MenuScreen";
@@ -25,10 +25,10 @@ function Start({ navigation }) {
         defaultValue={nickName}
       />
       {nickName == "" && (
-        <Button1 title={"Please enter valid nickname"} type={"outline"} />
+        <Button title={"Please enter valid nickname"} type={"outline"} />
       )}
       {nickName != "" && (
-        <Button1
+        <Button
           title={"Let's start " + nickName}
           type={"outline"}
           onPress={() => navigation.navigate("Menu")}
@@ -38,7 +38,7 @@ function Start({ navigation }) {
   );
 }
 
-function Games() {
+function History() {
   return (
     <>
       <ListGamesScreen />
@@ -46,11 +46,44 @@ function Games() {
   );
 }
 
-function Menu() {
+function Menu({ navigation }) {
   return (
-    <>
+    <View style={styles.container}>
       <MenuScreen />
-    </>
+      <View style={styles.box}>
+        <Button
+          title="Spela Online"
+          style={{ width: 150, marginTop: 150 }}
+          type={"outline"}
+          onPress={() => navigation.navigate("Online")}
+        />
+
+        <Button
+          title=" Spela Dator"
+          style={{ width: 150, marginTop: 20 }}
+          type={"outline"}
+          onPress={() => navigation.navigate("Offline")}
+        />
+
+        <View style={styles.buttomRow}>
+          <Button
+            title="Hem"
+            size={15}
+            style={{ height: 50, width: 70, marginTop: 20 }}
+            type={"outline"}
+            onPress={() => navigation.navigate("Start")}
+          />
+
+          <Button
+            title="Historik"
+            size={15}
+            style={{ height: 50, width: 70, marginTop: 20 }}
+            type={"outline"}
+            onPress={() => navigation.navigate("History")}
+          />
+        </View>
+      </View>
+    </View>
   );
 }
 
@@ -84,11 +117,11 @@ export default function App() {
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen name="Start" component={Start} />
-        <Stack.Screen name="Games" component={Games} />
+        <Stack.Screen name="Menu" component={Menu} />
+        <Stack.Screen name="History" component={History} />
         <Stack.Screen name="Winner" component={Winner} />
 
         <Stack.Screen name="Online" component={Online} />
-        <Stack.Screen name="Menu" component={Menu} />
         <Stack.Screen name="Offline" component={Offline} />
       </Stack.Navigator>
     </NavigationContainer>
@@ -99,6 +132,17 @@ const styles = StyleSheet.create({
   container: {
     backgroundColor: "#fff",
     alignItems: "center",
+    justifyContent: "center",
+  },
+  box: {
+    alignItems: "center",
+    alignContent: "center",
+    justifyContent: "center",
+    flexDirection: "column",
+  },
+  buttomRow: {
+    flexDirection: "row",
+    marginTop: 120,
     justifyContent: "center",
   },
 });
