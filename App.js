@@ -11,33 +11,29 @@ import { MenuScreen } from "./src/screens/MenuScreen";
 import { InGameScreen } from "./src/screens/InGameScreen";
 import { WinnerScreen } from "./src/screens/WinnerScreen";
 import { ListGamesScreen } from "./src/screens/ListGamesScreen";
-import { render } from "react-dom";
 
 function Start({ navigation }) {
   const [nickName, setNickName] = useState("");
-
-  const nameHandler = (name) => {
-    setNickName(name);
-    console.log(name);
-  };
 
   return (
     <>
       <StartScreen></StartScreen>
       <TextInput
         style={{ height: 40, margin: 12, borderWidth: 1, marginTop: 120 }}
-        placeholder={
-          this.nickName == null ? nameHandler() : this.nickName == nickName
-        }
+        placeholder={"Enter your nickname"}
+        onChangeText={(nickName) => setNickName(nickName)}
+        defaultValue={nickName}
       />
-      this.nickName==null || this.nickName.length {">"}=3: return (
-      <Button1 title="Enter Name Please!" type={"outline"} />
-      ):
-      <Button1
-        title="Start Playing"
-        type={"outline"}
-        onPress={() => navigation.navigate("Menu")}
-      />
+      {nickName == "" && (
+        <Button1 title={"Please enter valid nickname"} type={"outline"} />
+      )}
+      {nickName != "" && (
+        <Button1
+          title={"Let's start " + nickName}
+          type={"outline"}
+          onPress={() => navigation.navigate("Menu")}
+        />
+      )}
     </>
   );
 }
