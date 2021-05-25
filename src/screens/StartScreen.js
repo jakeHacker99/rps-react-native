@@ -10,6 +10,8 @@ export function StartScreen() {
   const navigation = useContext(NavigationContext);
   const name = useContext(AppContext);
 
+  // shu
+
   const [nickName, setNickName] = useState("");
 
   return (
