@@ -1,16 +1,19 @@
 import React, { useState } from "react";
-import { StyleSheet, TextInput, View } from "react-native";
+import { StyleSheet, TextInput, View, Text } from "react-native";
 
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 
-import { Button } from "react-native-elements";
+import { Button, withTheme } from "react-native-elements";
+
+import { Icon } from "react-native-elements";
 
 import { StartScreen } from "./src/screens/StartScreen";
 import { MenuScreen } from "./src/screens/MenuScreen";
 import { InGameScreen } from "./src/screens/InGameScreen";
 import { WinnerScreen } from "./src/screens/WinnerScreen";
 import { ListGamesScreen } from "./src/screens/ListGamesScreen";
+import { JoinablePlayersScreen } from "./src/screens/JoinablePlayersScreen";
 
 function Start({ navigation }) {
   const [nickName, setNickName] = useState("");
@@ -46,6 +49,48 @@ function History() {
   );
 }
 
+function Joina({ navigation }) {
+  return (
+    <View style={{ backgroundColor: "white" }}>
+      <JoinablePlayersScreen />
+
+      <View style={styles.row}>
+        <View style={styles.left}>
+          <Button
+            icon={<Icon name="sign-in" size={25} type="font-awesome" />}
+            name="sign-in"
+            type="font-awesome"
+            onPress={() => navigation.navigate("Online")}
+          />
+        </View>
+        <Text style={{ fontSize: 23 }}>Pelle </Text>
+      </View>
+      <View style={styles.row}>
+        <View style={styles.left}>
+          <Button
+            icon={<Icon name="sign-in" size={25} type="font-awesome" />}
+            name="sign-in"
+            type="font-awesome"
+            onPress={() => navigation.navigate("Online")}
+          />
+        </View>
+        <Text style={{ fontSize: 23 }}>Lina </Text>
+      </View>
+      <View style={styles.row}>
+        <View style={styles.left}>
+          <Button
+            icon={<Icon name="sign-in" size={25} type="font-awesome" />}
+            name="sign-in"
+            type="font-awesome"
+            onPress={() => navigation.navigate("Online")}
+          />
+        </View>
+        <Text style={{ fontSize: 23 }}>Sture </Text>
+      </View>
+    </View>
+  );
+}
+
 function Menu({ navigation }) {
   return (
     <View style={styles.container}>
@@ -55,7 +100,7 @@ function Menu({ navigation }) {
           title="Spela Online"
           style={{ width: 150, marginTop: 150 }}
           type={"outline"}
-          onPress={() => navigation.navigate("Online")}
+          onPress={() => navigation.navigate("Joina")}
         />
 
         <Button
@@ -118,6 +163,8 @@ export default function App() {
       <Stack.Navigator>
         <Stack.Screen name="Start" component={Start} />
         <Stack.Screen name="Menu" component={Menu} />
+        <Stack.Screen name="Joina" component={Joina} />
+
         <Stack.Screen name="History" component={History} />
         <Stack.Screen name="Winner" component={Winner} />
 
@@ -143,6 +190,11 @@ const styles = StyleSheet.create({
   buttomRow: {
     flexDirection: "row",
     marginTop: 120,
+    justifyContent: "center",
+  },
+  row: {
+    flexDirection: "row",
+    marginTop: 80,
     justifyContent: "center",
   },
 });
