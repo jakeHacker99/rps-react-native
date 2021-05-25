@@ -12,6 +12,8 @@ import { StartScreen } from "./src/Screens/StartScreen";
 import { MenuScreen } from "./src/Screens/MenuScreen";
 import { InGameScreen } from "./src/Screens/InGameScreen";
 import { WinnerScreen } from "./src/Screens/WinnerScreen";
+import { PcWinnerScreen } from "./src/Screens/PcWinnerScreen";
+
 import { ListGamesScreen } from "./src/Screens/ListGamesScreen";
 import { JoinablePlayersScreen } from "./src/Screens/JoinablePlayersScreen";
 
@@ -167,7 +169,7 @@ function Online({ navigation }) {
   );
 }
 
-function Offline() {
+function Offline({ navigation }) {
   return (
     <>
       <InGameScreen />
@@ -178,21 +180,21 @@ function Offline() {
             size={15}
             style={{ height: 50, width: 70, marginTop: 20, marginRight: 20 }}
             type={"outline"}
-            onPress={() => navigation.navigate("")}
+            onPress={() => navigation.navigate("OfflineWinner")}
           />
           <Button
             title="Sax"
             size={15}
             style={{ height: 50, width: 70, marginTop: 20, marginRight: 20 }}
             type={"outline"}
-            onPress={() => navigation.navigate("")}
+            onPress={() => navigation.navigate("OfflineWinner")}
           />
           <Button
             title="Påse"
             size={15}
             style={{ height: 50, width: 70, marginTop: 20, marginRight: 20 }}
             type={"outline"}
-            onPress={() => navigation.navigate("")}
+            onPress={() => navigation.navigate("OfflineWinner")}
           />
         </View>
       </View>
@@ -223,6 +225,29 @@ function Winner({ navigation }) {
     </>
   );
 }
+function OfflineWinner({ navigation }) {
+  return (
+    <>
+      <PcWinnerScreen />
+      <View style={styles.buttomRow}>
+        <Button
+          title="Spela Igen"
+          size={25}
+          style={{ height: 70, width: 70, marginTop: 20, marginRight: 20 }}
+          type={"outline"}
+          onPress={() => navigation.navigate("Offline")}
+        />
+        <Button
+          title="Avlsuta Spel"
+          size={15}
+          style={{ height: 70, width: 70, marginTop: 20, marginRight: 20 }}
+          type={"outline"}
+          onPress={() => navigation.navigate("Start")}
+        />
+      </View>
+    </>
+  );
+}
 const Stack = createStackNavigator();
 
 // const { navigation: { navigate } } = this.props;
@@ -240,6 +265,7 @@ export default function App() {
         <Stack.Screen name="History" component={History} />
         <Stack.Screen name="Winner" component={Winner} />
         <Stack.Screen name="Menu" component={Menu} />
+        <Stack.Screen name="OfflineWinner" component={OfflineWinner} />
 
         <Stack.Screen name="Offline" component={Offline} />
       </Stack.Navigator>
