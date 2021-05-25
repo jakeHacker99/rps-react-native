@@ -12,6 +12,7 @@ export function StartScreen() {
 
   // shu
 
+  // shu
   const [nickName, setNickName] = useState("");
 
   return (
