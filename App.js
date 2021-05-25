@@ -1,7 +1,10 @@
 import React, { useState } from "react";
 import { StyleSheet, TextInput, View, Text } from "react-native";
 
-import { NavigationContainer } from "@react-navigation/native";
+import {
+  NavigationContainer,
+  NavigationContext,
+} from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 
 import { Button } from "react-native-elements";
@@ -20,27 +23,9 @@ import { JoinablePlayersScreen } from "./src/Screens/JoinablePlayersScreen";
 import AppContext from "./src/Context/AppContext";
 
 function Start({ navigation }) {
-  const [nickName, setNickName] = useState("");
-
   return (
     <>
       <StartScreen></StartScreen>
-      <TextInput
-        style={{ height: 40, margin: 12, borderWidth: 1, marginTop: 120 }}
-        placeholder={"Enter your nickname"}
-        onChangeText={(nickName) => setNickName(nickName)}
-        defaultValue={nickName}
-      />
-      {nickName == "" && (
-        <Button title={"Please enter valid nickname"} type={"outline"} />
-      )}
-      {nickName != "" && (
-        <Button
-          title={"Let's start " + nickName}
-          type={"outline"}
-          onPress={() => navigation.navigate("Menu")}
-        />
-      )}
     </>
   );
 }
@@ -250,27 +235,29 @@ function OfflineWinner({ navigation }) {
 }
 const Stack = createStackNavigator();
 
-// const { navigation: { navigate } } = this.props;
+//  const { navigation: { navigate } } = this.props;
 
 export default function App() {
+  const [jakob, setJakob] = useState("jkaob");
+
   return (
-    // <AppContext>
-    <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen name="Start" component={Start} />
-        <Stack.Screen name="Joina" component={Joina} />
+    <AppContext.Provider value={jakob}>
+      <NavigationContainer>
+        <Stack.Navigator>
+          <Stack.Screen name="Start" component={Start} />
+          <Stack.Screen name="Joina" component={Joina} />
 
-        <Stack.Screen name="Online" component={Online} />
+          <Stack.Screen name="Online" component={Online} />
 
-        <Stack.Screen name="History" component={History} />
-        <Stack.Screen name="Winner" component={Winner} />
-        <Stack.Screen name="Menu" component={Menu} />
-        <Stack.Screen name="OfflineWinner" component={OfflineWinner} />
+          <Stack.Screen name="History" component={History} />
+          <Stack.Screen name="Winner" component={Winner} />
+          <Stack.Screen name="Menu" component={Menu} />
+          <Stack.Screen name="OfflineWinner" component={OfflineWinner} />
 
-        <Stack.Screen name="Offline" component={Offline} />
-      </Stack.Navigator>
-    </NavigationContainer>
-    //</AppContext>
+          <Stack.Screen name="Offline" component={Offline} />
+        </Stack.Navigator>
+      </NavigationContainer>
+    </AppContext.Provider>
   );
 }
 

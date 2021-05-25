@@ -1,10 +1,16 @@
-import React, { useState } from "react";
-import { StyleSheet, Text, View, Image, TextInput } from "react-native";
+import React, { useState, useContext } from "react";
+import { StyleSheet, Text, View, Image, TextInput, Button } from "react-native";
 
+import { NavigationContext } from "@react-navigation/native";
 import { StatusBar } from "expo-status-bar";
+import AppContext from "../Context/AppContext";
 
 export function StartScreen() {
   const title = useState("Rock Paper Scissors");
+  const navigation = useContext(NavigationContext);
+  const name = useContext(AppContext);
+
+  const [nickName, setNickName] = useState("");
 
   return (
     <View style={styles.container}>
@@ -12,8 +18,25 @@ export function StartScreen() {
       <View style={styles.title}>
         <Text style={styles.rock}>Rock </Text>
         <Text style={styles.paper}>Paper </Text>
-        <Text style={styles.scissors}>Scissors</Text>
+        <Text style={styles.scissors}>{name} </Text>
       </View>
+
+      <TextInput
+        style={{ height: 40, margin: 12, borderWidth: 1, marginTop: 120 }}
+        placeholder={"Enter your nickname"}
+        onChangeText={(nickName) => setNickName(nickName)}
+        defaultValue={nickName}
+      />
+      {nickName == "" && (
+        <Button title={"Please enter valid nickname"} type={"outline"} />
+      )}
+      {nickName != "" && (
+        <Button
+          title={"Let's start " + nickName}
+          type={"outline"}
+          onPress={() => navigation.navigate("Menu")}
+        />
+      )}
 
       <StatusBar style="auto" />
     </View>
