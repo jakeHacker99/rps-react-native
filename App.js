@@ -1,15 +1,8 @@
 import React, { useState } from "react";
-import { StyleSheet, TextInput, View, Text } from "react-native";
+import { StyleSheet, View } from "react-native";
 
-import {
-  NavigationContainer,
-  NavigationContext,
-} from "@react-navigation/native";
+import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
-
-import { Button } from "react-native-elements";
-
-import { Icon } from "react-native-elements";
 
 import { StartScreen } from "./src/Screens/StartScreen";
 import { MenuScreen } from "./src/Screens/MenuScreen";
@@ -22,239 +15,88 @@ import { JoinablePlayersScreen } from "./src/Screens/JoinablePlayersScreen";
 
 import AppContext from "./src/Context/AppContext";
 
-function Start({ navigation }) {
+function Start() {
   return (
-    <>
-      <StartScreen></StartScreen>
-    </>
+    <View style={styles.container}>
+      <StartScreen />
+    </View>
   );
 }
 
 function History() {
   return (
-    <>
+    <View style={styles.container}>
       <ListGamesScreen />
-    </>
-  );
-}
-
-function Joina({ navigation }) {
-  return (
-    <View style={{ backgroundColor: "white" }}>
-      <JoinablePlayersScreen />
-
-      <View style={styles.row}>
-        <View style={styles.left}>
-          <Button
-            icon={<Icon name="sign-in" size={25} type="font-awesome" />}
-            name="sign-in"
-            type="font-awesome"
-            onPress={() => navigation.navigate("Online")}
-          />
-        </View>
-        <Text style={{ fontSize: 23 }}>Pelle </Text>
-      </View>
-      <View style={styles.row}>
-        <View style={styles.left}>
-          <Button
-            icon={<Icon name="sign-in" size={25} type="font-awesome" />}
-            name="sign-in"
-            type="font-awesome"
-            onPress={() => navigation.navigate("Online")}
-          />
-        </View>
-        <Text style={{ fontSize: 23 }}>Lina </Text>
-      </View>
-      <View style={styles.row}>
-        <View style={styles.left}>
-          <Button
-            icon={<Icon name="sign-in" size={25} type="font-awesome" />}
-            name="sign-in"
-            type="font-awesome"
-            onPress={() => navigation.navigate("Online")}
-          />
-        </View>
-        <Text style={{ fontSize: 23 }}>Sture </Text>
-      </View>
     </View>
   );
 }
 
-function Menu({ navigation }) {
+function Joina() {
+  return (
+    <View style={styles.container}>
+      <JoinablePlayersScreen />
+    </View>
+  );
+}
+
+function Menu() {
   return (
     <View style={styles.container}>
       <MenuScreen />
-      <View style={styles.box}>
-        <Button
-          title="Spela Online"
-          style={{ width: 150, marginTop: 150 }}
-          type={"outline"}
-          onPress={() => navigation.navigate("Joina")}
-        />
-
-        <Button
-          title=" Spela Dator"
-          style={{ width: 150, marginTop: 20 }}
-          type={"outline"}
-          onPress={() => navigation.navigate("Offline")}
-        />
-
-        <View style={styles.buttomRow}>
-          <Button
-            title="Hem"
-            size={15}
-            style={{ height: 50, width: 70, marginTop: 20 }}
-            type={"outline"}
-            onPress={() => navigation.navigate("Start")}
-          />
-
-          <Button
-            title="Historik"
-            size={15}
-            style={{ height: 50, width: 70, marginTop: 20 }}
-            type={"outline"}
-            onPress={() => navigation.navigate("History")}
-          />
-        </View>
-      </View>
     </View>
   );
 }
 
-function Online({ navigation }) {
+function Online() {
   return (
-    <>
+    <View style={styles.container}>
       <InGameScreen />
-      <View style={styles.container}>
-        <View style={styles.lowRow}>
-          <Button
-            title="Sten"
-            size={15}
-            style={{ height: 50, width: 70, marginTop: 20, marginRight: 20 }}
-            type={"outline"}
-            onPress={() => navigation.navigate("Winner")}
-          />
-          <Button
-            title="Sax"
-            size={15}
-            style={{ height: 50, width: 70, marginTop: 20, marginRight: 20 }}
-            type={"outline"}
-            onPress={() => navigation.navigate("Winner")}
-          />
-          <Button
-            title="Påse"
-            size={15}
-            style={{ height: 50, width: 70, marginTop: 20, marginRight: 20 }}
-            type={"outline"}
-            onPress={() => navigation.navigate("Winner")}
-          />
-        </View>
-      </View>
-    </>
+    </View>
   );
 }
 
-function Offline({ navigation }) {
+function Offline() {
   return (
-    <>
+    <View style={styles.container}>
       <InGameScreen />
-      <View style={styles.container}>
-        <View style={styles.lowRow}>
-          <Button
-            title="Sten"
-            size={15}
-            style={{ height: 50, width: 70, marginTop: 20, marginRight: 20 }}
-            type={"outline"}
-            onPress={() => navigation.navigate("OfflineWinner")}
-          />
-          <Button
-            title="Sax"
-            size={15}
-            style={{ height: 50, width: 70, marginTop: 20, marginRight: 20 }}
-            type={"outline"}
-            onPress={() => navigation.navigate("OfflineWinner")}
-          />
-          <Button
-            title="Påse"
-            size={15}
-            style={{ height: 50, width: 70, marginTop: 20, marginRight: 20 }}
-            type={"outline"}
-            onPress={() => navigation.navigate("OfflineWinner")}
-          />
-        </View>
-      </View>
-    </>
+    </View>
   );
 }
 
-function Winner({ navigation }) {
+function Winner() {
   return (
-    <>
+    <View style={styles.container}>
       <WinnerScreen />
-      <View style={styles.buttomRow}>
-        <Button
-          title="Spela Igen"
-          size={25}
-          style={{ height: 70, width: 70, marginTop: 20, marginRight: 20 }}
-          type={"outline"}
-          onPress={() => navigation.navigate("Joina")}
-        />
-        <Button
-          title="Avlsuta Spel"
-          size={15}
-          style={{ height: 70, width: 70, marginTop: 20, marginRight: 20 }}
-          type={"outline"}
-          onPress={() => navigation.navigate("Start")}
-        />
-      </View>
-    </>
+    </View>
   );
 }
-function OfflineWinner({ navigation }) {
+function OfflineWinner() {
   return (
-    <>
+    <View style={styles.container}>
       <PcWinnerScreen />
-      <View style={styles.buttomRow}>
-        <Button
-          title="Spela Igen"
-          size={25}
-          style={{ height: 70, width: 70, marginTop: 20, marginRight: 20 }}
-          type={"outline"}
-          onPress={() => navigation.navigate("Offline")}
-        />
-        <Button
-          title="Avlsuta Spel"
-          size={15}
-          style={{ height: 70, width: 70, marginTop: 20, marginRight: 20 }}
-          type={"outline"}
-          onPress={() => navigation.navigate("Start")}
-        />
-      </View>
-    </>
+    </View>
   );
 }
 const Stack = createStackNavigator();
 
-//  const { navigation: { navigate } } = this.props;
-
 export default function App() {
-  const [jakob, setJakob] = useState("jkaob");
+  const [nickName, setNickName] = useState("Jakob vs ...");
 
   return (
-    <AppContext.Provider value={jakob}>
+    <AppContext.Provider value={nickName}>
       <NavigationContainer>
         <Stack.Navigator>
           <Stack.Screen name="Start" component={Start} />
-          <Stack.Screen name="Joina" component={Joina} />
-
-          <Stack.Screen name="Online" component={Online} />
-
-          <Stack.Screen name="History" component={History} />
-          <Stack.Screen name="Winner" component={Winner} />
           <Stack.Screen name="Menu" component={Menu} />
-          <Stack.Screen name="OfflineWinner" component={OfflineWinner} />
 
           <Stack.Screen name="Offline" component={Offline} />
+          <Stack.Screen name="Online" component={Online} />
+
+          <Stack.Screen name="OfflineWinner" component={OfflineWinner} />
+          <Stack.Screen name="Winner" component={Winner} />
+
+          <Stack.Screen name="Joina" component={Joina} />
+          <Stack.Screen name="History" component={History} />
         </Stack.Navigator>
       </NavigationContainer>
     </AppContext.Provider>
@@ -263,32 +105,9 @@ export default function App() {
 
 const styles = StyleSheet.create({
   container: {
+    flex: 1,
     backgroundColor: "#fff",
     alignItems: "center",
     justifyContent: "center",
-  },
-  box: {
-    alignItems: "center",
-    alignContent: "center",
-    justifyContent: "center",
-    flexDirection: "column",
-  },
-  buttomRow: {
-    flexDirection: "row",
-    marginTop: 120,
-    justifyContent: "center",
-  },
-  row: {
-    flexDirection: "row",
-    marginTop: 80,
-    justifyContent: "center",
-  },
-  lowRow: {
-    flexDirection: "row",
-    marginTop: 120,
-    justifyContent: "center",
-    marginBottom: 250,
-    marginLeft: 20,
-    backgroundColor: "#fff",
   },
 });

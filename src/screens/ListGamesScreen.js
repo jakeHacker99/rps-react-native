@@ -1,8 +1,6 @@
 import React from "react";
 import { StyleSheet, Text, View, Image } from "react-native";
 
-import { Button as Button1 } from "react-native-elements";
-
 export function ListGamesScreen() {
   return (
     <View style={styles.fixBackground}>

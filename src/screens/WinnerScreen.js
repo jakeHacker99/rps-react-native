@@ -1,12 +1,33 @@
-import React from "react";
+import React, { useContext } from "react";
 import { StyleSheet, Text, View, Image } from "react-native";
+import { Button } from "react-native-elements";
+
+import { NavigationContext } from "@react-navigation/native";
 
 export function WinnerScreen() {
+  const navigation = useContext(NavigationContext);
+
   return (
     <View style={styles.fixBackground}>
       <View style={styles.container}>
         <Text style={{ fontSize: 33, marginTop: 50 }}>Yazan vann med: </Text>
         <Image style={styles.pic} source={require("../../assets/rock.gif")} />
+      </View>
+      <View style={styles.buttomRow}>
+        <Button
+          title="Spela Igen"
+          size={25}
+          style={{ height: 70, width: 70, marginTop: 20, marginRight: 20 }}
+          type={"outline"}
+          onPress={() => navigation.navigate("Joina")}
+        />
+        <Button
+          title="Avlsuta Spel"
+          size={15}
+          style={{ height: 70, width: 70, marginTop: 20, marginRight: 20 }}
+          type={"outline"}
+          onPress={() => navigation.navigate("Start")}
+        />
       </View>
     </View>
   );

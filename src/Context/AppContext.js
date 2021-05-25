@@ -1,7 +1,5 @@
-import React from "react";
-const AppContext = React.createContext({
-  nickName: "jakob",
-  token: "",
-});
+import React, { useState } from "react";
+
+const AppContext = React.createContext([(name = "jakob")]);
 
 export default AppContext;

@@ -1,18 +1,14 @@
 import React, { useState, useContext } from "react";
-import { StyleSheet, Text, View, Image, TextInput, Button } from "react-native";
+import { StyleSheet, Text, View, Image, TextInput } from "react-native";
 
+import { Button } from "react-native-elements";
 import { NavigationContext } from "@react-navigation/native";
-import { StatusBar } from "expo-status-bar";
 import AppContext from "../Context/AppContext";
 
 export function StartScreen() {
-  const title = useState("Rock Paper Scissors");
   const navigation = useContext(NavigationContext);
   const name = useContext(AppContext);
 
-  // shu
-
-  // shu
   const [nickName, setNickName] = useState("");
 
   return (
@@ -21,17 +17,17 @@ export function StartScreen() {
       <View style={styles.title}>
         <Text style={styles.rock}>Rock </Text>
         <Text style={styles.paper}>Paper </Text>
-        <Text style={styles.scissors}>{name} </Text>
+        <Text style={styles.scissors}>Scissors </Text>
       </View>
 
       <TextInput
-        style={{ height: 40, margin: 12, borderWidth: 1, marginTop: 120 }}
+        style={styles.input}
         placeholder={"Enter your nickname"}
         onChangeText={(nickName) => setNickName(nickName)}
         defaultValue={nickName}
       />
       {nickName == "" && (
-        <Button title={"Please enter valid nickname"} type={"outline"} />
+        <Button title={"Enter a valid nickname"} type={"outline"} />
       )}
       {nickName != "" && (
         <Button
@@ -40,14 +36,13 @@ export function StartScreen() {
           onPress={() => navigation.navigate("Menu")}
         />
       )}
-
-      <StatusBar style="auto" />
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
+    flex: 1,
     backgroundColor: "#fff",
     alignItems: "center",
     justifyContent: "center",
@@ -74,7 +69,15 @@ const styles = StyleSheet.create({
   },
   title: {
     flexDirection: "row",
+    marginBottom: 200,
   },
 
+  input: {
+    height: 40,
+    margin: 12,
+    borderWidth: 1,
+    marginTop: 20,
+    width: 200,
+  },
   button: {},
 });
