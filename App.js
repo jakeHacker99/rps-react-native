@@ -1,16 +1,10 @@
-import React, { useState, useEffect } from "react";
-import {
-  StyleSheet,
-  View,
-  ActivityIndicator,
-  FlatList,
-  Text,
-} from "react-native";
+import React, { useState } from "react";
+import { StyleSheet, View } from "react-native";
 
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 
-import { GetListApi } from "./src/Context/GetListApi";
+import { FetchTesting } from "./src/Data/FetchTesting";
 
 import { StartScreen } from "./src/Screens/StartScreen";
 import { MenuScreen } from "./src/Screens/MenuScreen";
@@ -27,7 +21,7 @@ function Start() {
   return (
     <View style={styles.container}>
       <StartScreen />
-      <GetListApi />
+      <FetchTesting />
     </View>
   );
 }

@@ -7,17 +7,18 @@ import {
   StyleSheet,
 } from "react-native";
 
-export function GetListApi() {
+export function FetchTesting() {
   const [isLoading, setLoading] = useState(true);
   const [data, setData] = useState([]);
 
   useEffect(() => {
     fetch(
-      "https://cors-anywhere.herokuapp.com/https://reactnative.dev/movies.json",
+      "https://reactnative.dev/movies.json",
 
       // visit  https://cors-anywhere.herokuapp.com/ and accept it to run is browser
       {
         method: "GET",
+        Accept: "application/json",
 
         headers: {
           "Content-Type": "application/json",
@@ -32,7 +33,7 @@ export function GetListApi() {
 
   return (
     <View style={styles.container}>
-      <View style={{ marginTop: 30 }}>
+      <View style={{}}>
         {isLoading ? (
           <ActivityIndicator />
         ) : (
@@ -54,7 +55,6 @@ export function GetListApi() {
 const styles = StyleSheet.create({
   container: {
     backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
+    height: 100,
   },
 });
