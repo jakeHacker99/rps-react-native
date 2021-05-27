@@ -89,21 +89,6 @@ function OfflineWinner() {
 const Stack = createStackNavigator();
 
 export default function App() {
-  // useEffect(() => {
-  //   axios
-  //     .get("https://reactnative.dev/movies.json", {
-  //       method: "no-cors",
-  //       headers: {
-  //         Accept: "application/json",
-  //         // Token: "059e95d5-a6a8-4778-ab5b-7349d5db420b",
-  //         "Content-Type": "application/json",
-  //       },
-  //     })
-  //     .then((response) => response.json())
-  //     .then((json) => setData(json))
-  //     .catch((error) => console.error(error));
-  // }, []);
-
   const [nickName, setNickName] = useState("Jakob vs ...");
 
   return (

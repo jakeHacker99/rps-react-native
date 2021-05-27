@@ -14,6 +14,8 @@ export function GetListApi() {
   useEffect(() => {
     fetch(
       "https://cors-anywhere.herokuapp.com/https://reactnative.dev/movies.json",
+
+      // visit  https://cors-anywhere.herokuapp.com/ and accept it to run is browser
       {
         method: "GET",
 
