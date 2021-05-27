@@ -73,11 +73,11 @@ const styles = StyleSheet.create({
     height: 120,
   },
   box: {
-    alignItems: "center",
-    alignContent: "center",
-    justifyContent: "center",
-    flexDirection: "column",
-    textAlignVertical: "middle",
+    // alignItems: "center",
+    // alignContent: "center",
+    // justifyContent: "center",
+    // flexDirection: "column",
+    //  textAlignVertical: "middle",
   },
   buttomRow: {
     flexDirection: "row",
