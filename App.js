@@ -1,8 +1,16 @@
-import React, { useState } from "react";
-import { StyleSheet, View } from "react-native";
+import React, { useState, useEffect } from "react";
+import {
+  StyleSheet,
+  View,
+  ActivityIndicator,
+  FlatList,
+  Text,
+} from "react-native";
 
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
+
+import { GetListApi } from "./src/Context/GetListApi";
 
 import { StartScreen } from "./src/Screens/StartScreen";
 import { MenuScreen } from "./src/Screens/MenuScreen";
@@ -19,6 +27,7 @@ function Start() {
   return (
     <View style={styles.container}>
       <StartScreen />
+      <GetListApi />
     </View>
   );
 }
@@ -80,6 +89,21 @@ function OfflineWinner() {
 const Stack = createStackNavigator();
 
 export default function App() {
+  // useEffect(() => {
+  //   axios
+  //     .get("https://reactnative.dev/movies.json", {
+  //       method: "no-cors",
+  //       headers: {
+  //         Accept: "application/json",
+  //         // Token: "059e95d5-a6a8-4778-ab5b-7349d5db420b",
+  //         "Content-Type": "application/json",
+  //       },
+  //     })
+  //     .then((response) => response.json())
+  //     .then((json) => setData(json))
+  //     .catch((error) => console.error(error));
+  // }, []);
+
   const [nickName, setNickName] = useState("Jakob vs ...");
 
   return (
