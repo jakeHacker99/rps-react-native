@@ -16,6 +16,7 @@ export function FetchTesting() {
       "https://reactnative.dev/movies.json",
 
       // visit  https://cors-anywhere.herokuapp.com/ and accept it to run is browser
+      // shu katt
       {
         method: "GET",
         Accept: "application/json",
