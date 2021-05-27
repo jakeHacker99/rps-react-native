@@ -11,7 +11,7 @@ export function PcWinnerScreen() {
   return (
     <View style={styles.fixBackground}>
       <View style={styles.container}>
-        <Text style={{ fontSize: 33, marginTop: 50 }}>Dator vann med: </Text>
+        <Text style={{ fontSize: 33, marginTop: 150 }}>Dator vann med: </Text>
         <Image style={styles.pic} source={require("../../assets/paper.gif")} />
       </View>
 
@@ -43,6 +43,7 @@ const styles = StyleSheet.create({
   },
   fixBackground: {
     backgroundColor: "#fff",
+    marginTop: 50,
   },
   row: {
     flexDirection: "row",

@@ -10,7 +10,7 @@ export function WinnerScreen() {
   return (
     <View style={styles.fixBackground}>
       <View style={styles.container}>
-        <Text style={{ fontSize: 33, marginTop: 50 }}>Yazan vann med: </Text>
+        <Text style={{ fontSize: 33, marginTop: 150 }}>Yazan vann med: </Text>
         <Image style={styles.pic} source={require("../../assets/rock.gif")} />
       </View>
       <View style={styles.buttomRow}>
@@ -41,6 +41,7 @@ const styles = StyleSheet.create({
   },
   fixBackground: {
     backgroundColor: "#fff",
+    marginTop: 50,
   },
   row: {
     flexDirection: "row",

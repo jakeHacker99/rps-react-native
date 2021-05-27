@@ -72,13 +72,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     height: 120,
   },
-  box: {
-    // alignItems: "center",
-    // alignContent: "center",
-    // justifyContent: "center",
-    // flexDirection: "column",
-    //  textAlignVertical: "middle",
-  },
+
   buttomRow: {
     flexDirection: "row",
     marginTop: 50,

@@ -29,7 +29,7 @@ export function InGameScreen() {
             size={15}
             style={{ height: 50, width: 70, marginTop: 20, marginRight: 20 }}
             type={"outline"}
-            onPress={() => navigation.navigate("Winner")}
+            onPress={() => navigation.navigate("OfflineWinner")}
           />
           <Button
             title="Påse"
@@ -52,6 +52,7 @@ const styles = StyleSheet.create({
   },
   fixBackground: {
     backgroundColor: "#fff",
+    marginTop: 150,
   },
 
   lowRow: {

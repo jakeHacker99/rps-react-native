@@ -1,7 +1,7 @@
 import React, { useState, useContext } from "react";
-import { StyleSheet, Text, View, Image, TextInput } from "react-native";
+import { StyleSheet, Text, View, TextInput } from "react-native";
 
-import { Button } from "react-native-elements";
+import { Button, Image } from "react-native-elements";
 import { NavigationContext } from "@react-navigation/native";
 import AppContext from "../Context/AppContext";
 
@@ -42,7 +42,6 @@ export function StartScreen() {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
     backgroundColor: "#fff",
     alignItems: "center",
     justifyContent: "center",
@@ -65,11 +64,11 @@ const styles = StyleSheet.create({
   pic: {
     width: 100,
     height: 100,
-    marginTop: 40,
+    marginTop: 20,
   },
   title: {
     flexDirection: "row",
-    marginBottom: 200,
+    marginBottom: 20,
   },
 
   input: {
