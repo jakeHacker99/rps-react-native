@@ -1,20 +1,27 @@
-import React from "react";
+import React, { useContext } from "react";
 import { StyleSheet, Text, View, Image } from "react-native";
+import AppContext from "../Context/AppContext";
 
 export function ListGamesScreen() {
+  const { nickName, opponentName } = useContext(AppContext);
+
   return (
     <View style={styles.fixBackground}>
       <View style={styles.row}>
-        <Text style={styles.textStyle}>Yazan vann med: </Text>
+        <Text style={styles.textStyle}>{nickName} vann med: </Text>
         <Image style={styles.pic} source={require("../../assets/rock.gif")} />
       </View>
 
       <View style={styles.row}>
-        <Text style={{ fontSize: 23, marginTop: 30 }}>Jakob vann med: </Text>
+        <Text style={{ fontSize: 23, marginTop: 30 }}>
+          {opponentName} vann med:{" "}
+        </Text>
         <Image style={styles.pic} source={require("../../assets/paper.gif")} />
       </View>
       <View style={styles.row}>
-        <Text style={{ fontSize: 23, marginTop: 20 }}>Jakob vann med: </Text>
+        <Text style={{ fontSize: 23, marginTop: 20 }}>
+          {opponentName} vann med:{" "}
+        </Text>
         <Image
           style={styles.pic}
           source={require("../../assets/scissors.gif")}
@@ -25,7 +32,9 @@ export function ListGamesScreen() {
         <Image style={styles.pic} source={require("../../assets/rock.gif")} />
       </View>
       <View style={styles.row}>
-        <Text style={{ fontSize: 23, marginTop: 20 }}>Yazan vann med: </Text>
+        <Text style={{ fontSize: 23, marginTop: 20 }}>
+          {nickName} vann med:{" "}
+        </Text>
         <Image style={styles.pic} source={require("../../assets/paper.gif")} />
       </View>
     </View>

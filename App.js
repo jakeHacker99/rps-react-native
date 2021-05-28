@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { StyleSheet, View } from "react-native";
 
 import { NavigationContainer } from "@react-navigation/native";
@@ -81,9 +81,12 @@ function OfflineWinner() {
 const Stack = createStackNavigator();
 
 export default function App() {
+  const [opponentName] = useState("Yazan");
+
   const [nickName, setNickName] = useState("");
+
   return (
-    <AppContext.Provider value={{ nickName, setNickName }}>
+    <AppContext.Provider value={{ nickName, setNickName, opponentName }}>
       <NavigationContainer>
         <Stack.Navigator>
           <Stack.Screen name="Start" component={Start} />

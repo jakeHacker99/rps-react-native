@@ -3,14 +3,18 @@ import { StyleSheet, Text, View, Image } from "react-native";
 import { Button } from "react-native-elements";
 
 import { NavigationContext } from "@react-navigation/native";
+import AppContext from "../Context/AppContext";
 
 export function WinnerScreen() {
   const navigation = useContext(NavigationContext);
+  const { nickName } = useContext(AppContext);
 
   return (
     <View style={styles.fixBackground}>
       <View style={styles.container}>
-        <Text style={{ fontSize: 33, marginTop: 150 }}>Yazan vann med: </Text>
+        <Text style={{ fontSize: 33, marginTop: 150 }}>
+          {nickName} vann med:
+        </Text>
         <Image style={styles.pic} source={require("../../assets/rock.gif")} />
       </View>
       <View style={styles.buttomRow}>

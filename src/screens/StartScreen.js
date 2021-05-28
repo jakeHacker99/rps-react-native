@@ -21,16 +21,16 @@ export function StartScreen() {
 
       <TextInput
         style={styles.input}
-        placeholder={"Enter your nickname"}
+        placeholder={"Ange ditt namn"}
         onChangeText={(nickName) => setNickName(nickName)}
         defaultValue={nickName}
       />
-      {nickName == "" && (
-        <Button title={"Enter a valid nickname"} type={"outline"} />
+      {nickName.length < 3 && (
+        <Button title={"Ange ett giltigt namn"} type={"outline"} />
       )}
-      {nickName != "" && (
+      {nickName.length >= 3 && (
         <Button
-          title={"Let's start " + nickName}
+          title={"Forsätt till meny"}
           type={"outline"}
           onPress={() => navigation.navigate("Menu")}
         />

@@ -9,7 +9,7 @@ import AppContext from "../Context/AppContext";
 
 export function JoinablePlayersScreen() {
   const navigation = useContext(NavigationContext);
-  const name = useContext(AppContext);
+  const { nickName, opponentName } = useContext(AppContext);
 
   return (
     <View style={styles.fixBackground}>
@@ -28,7 +28,7 @@ export function JoinablePlayersScreen() {
             onPress={() => navigation.navigate("Online")}
           />
         </View>
-        <Text style={{ fontSize: 23 }}>Pelle </Text>
+        <Text style={{ fontSize: 23 }}>{opponentName} </Text>
       </View>
       <View style={styles.row}>
         <View style={styles.left}>
@@ -39,7 +39,7 @@ export function JoinablePlayersScreen() {
             onPress={() => navigation.navigate("Online")}
           />
         </View>
-        <Text style={{ fontSize: 23 }}>Lina </Text>
+        <Text style={{ fontSize: 23 }}>{nickName} </Text>
       </View>
       <View style={styles.row}>
         <View style={styles.left}>
@@ -50,7 +50,7 @@ export function JoinablePlayersScreen() {
             onPress={() => navigation.navigate("Online")}
           />
         </View>
-        <Text style={{ fontSize: 23 }}>Sture </Text>
+        <Text style={{ fontSize: 23 }}>raketen </Text>
       </View>
     </View>
   );
