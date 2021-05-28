@@ -20,7 +20,6 @@ function Start() {
   return (
     <View style={styles.container}>
       <StartScreen />
-      <FetchTesting />
     </View>
   );
 }
@@ -82,7 +81,7 @@ function OfflineWinner() {
 const Stack = createStackNavigator();
 
 export default function App() {
-  const [nickName, setNickName] = useState("124");
+  const [nickName, setNickName] = useState("");
   return (
     <AppContext.Provider value={{ nickName, setNickName }}>
       <NavigationContainer>

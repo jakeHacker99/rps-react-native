@@ -7,7 +7,6 @@ import AppContext from "../Context/AppContext";
 
 export function StartScreen() {
   const navigation = useContext(NavigationContext);
-  const name = useContext(AppContext);
 
   const { nickName, setNickName } = useContext(AppContext);
 

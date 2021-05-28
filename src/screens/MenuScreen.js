@@ -8,7 +8,7 @@ import AppContext from "../Context/AppContext";
 
 export function MenuScreen() {
   const navigation = useContext(NavigationContext);
-  const { nickName, setnickName } = useContext(AppContext);
+  const { nickName } = useContext(AppContext);
 
   return (
     <View style={styles.fixBackground}>
