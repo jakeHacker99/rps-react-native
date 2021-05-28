@@ -4,9 +4,12 @@ import { NavigationContext } from "@react-navigation/native";
 import { StyleSheet, Text, View, Image } from "react-native";
 
 import { Button } from "react-native-elements";
+import AppContext from "../Context/AppContext";
 
 export function PcWinnerScreen() {
   const navigation = useContext(NavigationContext);
+
+  const { setNickName } = useContext(AppContext);
 
   return (
     <View style={styles.fixBackground}>
@@ -28,7 +31,9 @@ export function PcWinnerScreen() {
           size={15}
           style={{ height: 70, width: 70, marginTop: 20, marginRight: 20 }}
           type={"outline"}
-          onPress={() => navigation.navigate("Start")}
+          onPress={() => {
+            setNickName(""), navigation.navigate("Start");
+          }}
         />
       </View>
     </View>

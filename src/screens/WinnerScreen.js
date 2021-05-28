@@ -7,7 +7,7 @@ import AppContext from "../Context/AppContext";
 
 export function WinnerScreen() {
   const navigation = useContext(NavigationContext);
-  const { nickName } = useContext(AppContext);
+  const { nickName, setNickName } = useContext(AppContext);
 
   return (
     <View style={styles.fixBackground}>
@@ -30,7 +30,9 @@ export function WinnerScreen() {
           size={15}
           style={{ height: 70, width: 70, marginTop: 20, marginRight: 20 }}
           type={"outline"}
-          onPress={() => navigation.navigate("Start")}
+          onPress={() => {
+            setNickName(""), navigation.navigate("Start");
+          }}
         />
       </View>
     </View>
