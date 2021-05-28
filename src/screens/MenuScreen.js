@@ -8,12 +8,12 @@ import AppContext from "../Context/AppContext";
 
 export function MenuScreen() {
   const navigation = useContext(NavigationContext);
-  const name = useContext(AppContext);
+  const { nickName, setnickName } = useContext(AppContext);
 
   return (
     <View style={styles.fixBackground}>
       <View style={styles.container}>
-        <Text style={{ fontSize: 33, marginTop: 50 }}>RPS {name} </Text>
+        <Text style={{ fontSize: 33, marginTop: 50 }}>RPS {nickName}</Text>
       </View>
       <View style={styles.box}>
         <Button

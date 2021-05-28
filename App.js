@@ -82,10 +82,9 @@ function OfflineWinner() {
 const Stack = createStackNavigator();
 
 export default function App() {
-  const [nickName, setNickName] = useState("Jakob vs ...");
-
+  const [nickName, setNickName] = useState("124");
   return (
-    <AppContext.Provider value={name}>
+    <AppContext.Provider value={{ nickName, setNickName }}>
       <NavigationContainer>
         <Stack.Navigator>
           <Stack.Screen name="Start" component={Start} />

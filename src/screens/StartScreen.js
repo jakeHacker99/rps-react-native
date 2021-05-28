@@ -9,7 +9,7 @@ export function StartScreen() {
   const navigation = useContext(NavigationContext);
   const name = useContext(AppContext);
 
-  const [nickName, setNickName] = useState("");
+  const { nickName, setNickName } = useContext(AppContext);
 
   return (
     <View style={styles.container}>
