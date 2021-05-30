@@ -20,6 +20,7 @@ function Start() {
   return (
     <View style={styles.container}>
       <StartScreen />
+      <FetchTesting />
     </View>
   );
 }

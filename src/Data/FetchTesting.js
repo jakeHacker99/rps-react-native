@@ -10,13 +10,12 @@ import {
 export function FetchTesting() {
   const [isLoading, setLoading] = useState(true);
   const [data, setData] = useState([]);
+  const url = "http://localhost:8080/tokens/new";
 
   useEffect(() => {
     fetch(
-      "https://reactnative.dev/movies.json",
+      url,
 
-      // visit  https://cors-anywhere.herokuapp.com/ and accept it to run is browser
-      // shu katt
       {
         method: "GET",
         Accept: "application/json",
@@ -26,15 +25,17 @@ export function FetchTesting() {
         },
       }
     )
-      .then((response) => response.json())
-      .then((json) => setData(json.movies))
+      .then((res) => res.text())
+      .then((res) => console.log("token: ", res))
+
+      // .then((json) => setData(json.movies))
       .catch((error) => console.error(error))
       .finally(() => setLoading(false));
   }, []);
 
   return (
     <View style={styles.container}>
-      <View style={{}}>
+      <View>
         {isLoading ? (
           <ActivityIndicator />
         ) : (
