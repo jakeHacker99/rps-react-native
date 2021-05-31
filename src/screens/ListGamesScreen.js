@@ -1,13 +1,37 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
+import { ScrollView } from "react-native";
 import { StyleSheet, Text, View, Image } from "react-native";
 import AppContext from "../Context/AppContext";
 
 export function ListGamesScreen() {
   const { nickName, opponentName } = useContext(AppContext);
 
+  const [game, setGame] = useState([
+    { name: 'Jakob', key: '1' },
+    { name: 'Yazan', key: '2' },
+    { name: 'Nicklas', key: '3' },
+    { name: 'Philip', key: '4' },
+    { name: 'David', key: '5' },
+  ])
+
   return (
     <View style={styles.fixBackground}>
-      <View style={styles.row}>
+      <ScrollView >
+        {
+          game.map(item => (
+            <View key={item.key} style={styles.row}>
+              <Text style={{ fontSize: 23, marginTop: 30 }}>
+               {item.name} vann med:{" "}
+               </Text>
+              <Image style={styles.pic} source={require("../../assets/rock.gif")} />
+            </View>
+
+          ))
+        }
+
+      </ScrollView>
+
+      {/* <View style={styles.row}>
         <Text style={styles.textStyle}>{nickName} vann med: </Text>
         <Image style={styles.pic} source={require("../../assets/rock.gif")} />
       </View>
@@ -36,7 +60,7 @@ export function ListGamesScreen() {
           {nickName} vann med:{" "}
         </Text>
         <Image style={styles.pic} source={require("../../assets/paper.gif")} />
-      </View>
+      </View> */}
     </View>
   );
 }
