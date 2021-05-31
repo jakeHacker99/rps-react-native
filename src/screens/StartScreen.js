@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useContext } from "react";
 import { StyleSheet, Text, View, TextInput } from "react-native";
 
 import { Button, Image } from "react-native-elements";

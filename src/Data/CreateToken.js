@@ -1,8 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { View, StyleSheet, Text } from "react-native";
+import { ThemeContext } from "react-native-elements";
+import AppContext from "../Context/AppContext";
 
 export function CreateToken() {
-  const [token, setToken] = useState("");
+  const { token, setToken } = useContext(AppContext);
 
   const url = "http://192.168.1.202:8080/tokens/new";
 
