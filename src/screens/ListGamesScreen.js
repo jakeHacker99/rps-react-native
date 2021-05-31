@@ -6,10 +6,10 @@ import AppContext from "../Context/AppContext";
 export function ListGamesScreen() {
   const { nickName, opponentName } = useContext(AppContext);
 
-  const [game, setGame] = useState([
+  const [game] = useState([
     { name: nickName, key: "1" },
     { name: opponentName, key: "2" },
-    { name: nickName, key: "3" },
+    { name: nickName, key: "8" },
     { name: nickName, key: "4" },
     { name: nickName, key: "5" },
     { name: nickName, key: "6" },
@@ -21,7 +21,7 @@ export function ListGamesScreen() {
         {game.map((item) => (
           <View key={item.key} style={styles.row}>
             <Text style={{ fontSize: 23, marginTop: 30 }}>
-              {item.name} vann med:{" "}
+              {item.name} vann med:
             </Text>
 
             {item.key % 2 == 0 && (

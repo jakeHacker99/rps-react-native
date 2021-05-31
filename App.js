@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useState, createContext } from "react";
 import { StyleSheet, View } from "react-native";
 
 import { NavigationContainer } from "@react-navigation/native";
@@ -80,29 +80,33 @@ function OfflineWinner() {
   );
 }
 const Stack = createStackNavigator();
+const TokenContext = createContext();
 
 export default function App() {
+  <CreateToken />;
   const [opponentName] = useState("Yazan");
 
   const [nickName, setNickName] = useState("");
 
   return (
-    <AppContext.Provider value={{ nickName, setNickName, opponentName }}>
-      <NavigationContainer>
-        <Stack.Navigator>
-          <Stack.Screen name="Menu" component={Menu} />
-          <Stack.Screen name="Start" component={Start} />
-          <Stack.Screen name="Offline" component={Offline} />
-          <Stack.Screen name="Online" component={Online} />
+    <TokenContext.Provider value={CreateToken.token}>
+      <AppContext.Provider value={{ nickName, setNickName, opponentName }}>
+        <NavigationContainer>
+          <Stack.Navigator>
+            <Stack.Screen name="Start" component={Start} />
+            <Stack.Screen name="Menu" component={Menu} />
+            <Stack.Screen name="Offline" component={Offline} />
+            <Stack.Screen name="Online" component={Online} />
 
-          <Stack.Screen name="OfflineWinner" component={OfflineWinner} />
-          <Stack.Screen name="Winner" component={Winner} />
+            <Stack.Screen name="OfflineWinner" component={OfflineWinner} />
+            <Stack.Screen name="Winner" component={Winner} />
 
-          <Stack.Screen name="Joina" component={Joina} />
-          <Stack.Screen name="History" component={History} />
-        </Stack.Navigator>
-      </NavigationContainer>
-    </AppContext.Provider>
+            <Stack.Screen name="Joina" component={Joina} />
+            <Stack.Screen name="History" component={History} />
+          </Stack.Navigator>
+        </NavigationContainer>
+      </AppContext.Provider>
+    </TokenContext.Provider>
   );
 }
 

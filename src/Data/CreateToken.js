@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { View, StyleSheet } from "react-native";
+import { View, StyleSheet, Text } from "react-native";
 
 export function CreateToken() {
+  const [token, setToken] = useState("");
+
   const url = "http://192.168.1.202:8080/tokens/new";
 
   useEffect(() => {
@@ -14,17 +16,13 @@ export function CreateToken() {
       },
     })
       .then((res) => res.text())
-      .then((res) => console.log("token: ", res))
+      .then((res) => {
+        setToken(res);
+        console.log("token: ", res);
+      })
 
       .catch((error) => console.error(error));
   }, []);
 
-  return <View style={styles.container}></View>;
+  return <Text></Text>;
 }
-
-const styles = StyleSheet.create({
-  container: {
-    backgroundColor: "#fff",
-    height: 100,
-  },
-});
