@@ -3,7 +3,7 @@ import { StyleSheet, View } from "react-native";
 
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
-import { FetchTesting } from "./src/Data/FetchTesting";
+import { CreateToken } from "./src/Data/CreateToken";
 
 import { StartScreen } from "./src/Screens/StartScreen";
 import { MenuScreen } from "./src/Screens/MenuScreen";
@@ -20,7 +20,7 @@ function Start() {
   return (
     <View style={styles.container}>
       <StartScreen />
-      <FetchTesting />
+      <CreateToken />
     </View>
   );
 }
@@ -90,8 +90,8 @@ export default function App() {
     <AppContext.Provider value={{ nickName, setNickName, opponentName }}>
       <NavigationContainer>
         <Stack.Navigator>
-          <Stack.Screen name="Start" component={Start} />
           <Stack.Screen name="Menu" component={Menu} />
+          <Stack.Screen name="Start" component={Start} />
           <Stack.Screen name="Offline" component={Offline} />
           <Stack.Screen name="Online" component={Online} />
 
