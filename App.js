@@ -1,9 +1,8 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, createContext, useEffect } from "react";
 import { StyleSheet, View } from "react-native";
 
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
-import { FetchTesting } from "./src/Data/FetchTesting";
 
 import { StartScreen } from "./src/Screens/StartScreen";
 import { MenuScreen } from "./src/Screens/MenuScreen";
@@ -80,12 +79,28 @@ function OfflineWinner() {
 }
 const Stack = createStackNavigator();
 
+const TokenContex = createContext();
+
 export default function App() {
   const [opponentName] = useState("Yazan");
 
   const [nickName, setNickName] = useState("");
 
+ const [token, setToken] = useState("");
+  // console.log("token1",token)
+  useEffect(() => {
+        fetch('http://192.168.1.181:8080/tokens/new')
+        .then(response => response.text())
+        .then(newToken => setToken(newToken));
+        
+      }, );[]
+
+      // console.log("token2",token)
+
+  
+
   return (
+    <TokenContex.Provider value={token}>
     <AppContext.Provider value={{ nickName, setNickName, opponentName }}>
       <NavigationContainer>
         <Stack.Navigator>
@@ -102,6 +117,7 @@ export default function App() {
         </Stack.Navigator>
       </NavigationContainer>
     </AppContext.Provider>
+    </TokenContex.Provider>
   );
 }
 
