@@ -1,9 +1,16 @@
+<<<<<<< HEAD
 import React, { useState, createContext } from "react";
+=======
+import React, { useContext, useState, createContext, useEffect } from "react";
+>>>>>>> fefcaa713ef4cb1a8c1f9e95e65ce9f232cb3c91
 import { StyleSheet, View } from "react-native";
 
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
+<<<<<<< HEAD
 import { CreateToken } from "./src/Data/CreateToken";
+=======
+>>>>>>> fefcaa713ef4cb1a8c1f9e95e65ce9f232cb3c91
 
 import { StartScreen } from "./src/Screens/StartScreen";
 import { MenuScreen } from "./src/Screens/MenuScreen";
@@ -82,13 +89,29 @@ function OfflineWinner() {
 const Stack = createStackNavigator();
 const TokenContext = createContext();
 
+const TokenContex = createContext();
+
 export default function App() {
   <CreateToken />;
   const [opponentName] = useState("Yazan");
 
   const [nickName, setNickName] = useState("");
 
+ const [token, setToken] = useState("");
+  // console.log("token1",token)
+  useEffect(() => {
+        fetch('http://192.168.1.181:8080/tokens/new')
+        .then(response => response.text())
+        .then(newToken => setToken(newToken));
+        
+      }, );[]
+
+      // console.log("token2",token)
+
+  
+
   return (
+<<<<<<< HEAD
     <TokenContext.Provider value={CreateToken.token}>
       <AppContext.Provider value={{ nickName, setNickName, opponentName }}>
         <NavigationContainer>
@@ -107,6 +130,26 @@ export default function App() {
         </NavigationContainer>
       </AppContext.Provider>
     </TokenContext.Provider>
+=======
+    <TokenContex.Provider value={token}>
+    <AppContext.Provider value={{ nickName, setNickName, opponentName }}>
+      <NavigationContainer>
+        <Stack.Navigator>
+          <Stack.Screen name="Start" component={Start} />
+          <Stack.Screen name="Menu" component={Menu} />
+          <Stack.Screen name="Offline" component={Offline} />
+          <Stack.Screen name="Online" component={Online} />
+
+          <Stack.Screen name="OfflineWinner" component={OfflineWinner} />
+          <Stack.Screen name="Winner" component={Winner} />
+
+          <Stack.Screen name="Joina" component={Joina} />
+          <Stack.Screen name="History" component={History} />
+        </Stack.Navigator>
+      </NavigationContainer>
+    </AppContext.Provider>
+    </TokenContex.Provider>
+>>>>>>> fefcaa713ef4cb1a8c1f9e95e65ce9f232cb3c91
   );
 }
 
