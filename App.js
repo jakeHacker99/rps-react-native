@@ -7,7 +7,9 @@ import { CreateToken } from "./src/Data/CreateToken";
 
 import { StartScreen } from "./src/Screens/StartScreen";
 import { MenuScreen } from "./src/Screens/MenuScreen";
-import { InGameScreen } from "./src/Screens/InGameScreen";
+import { OfflineGameScreen } from "./src/Screens/OfflineGameScreen";
+import { OnlineGameScreen } from "./src/Screens/OnlineGameScreen";
+
 import { WinnerScreen } from "./src/Screens/WinnerScreen";
 import { PcWinnerScreen } from "./src/Screens/PcWinnerScreen";
 
@@ -15,15 +17,12 @@ import { ListGamesScreen } from "./src/Screens/ListGamesScreen";
 import { JoinablePlayersScreen } from "./src/Screens/JoinablePlayersScreen";
 
 import AppContext from "./src/Context/AppContext";
-import { StartGame } from "./src/Data/StartGame";
 
 function Start() {
   return (
     <View style={styles.container}>
       <StartScreen />
       <CreateToken />
-
-      {/* <StartGame/> */}
     </View>
   );
 }
@@ -55,7 +54,7 @@ function Menu() {
 function Online() {
   return (
     <View style={styles.container}>
-      <InGameScreen />
+      <OnlineGameScreen />
     </View>
   );
 }
@@ -63,7 +62,7 @@ function Online() {
 function Offline() {
   return (
     <View style={styles.container}>
-      <InGameScreen />
+      <OfflineGameScreen />
     </View>
   );
 }
@@ -85,18 +84,16 @@ function OfflineWinner() {
 const Stack = createStackNavigator();
 
 export default function App() {
-
-  const [opponentName] = useState("Yazan");
+  const [opponentName] = useState("Datorn");
 
   const [token, setToken] = useState("");
-  const [game, setGame] = useState("");
 
   const [opponentToken, setOpponentToken] = useState("");
   const [nickName, setNickName] = useState("");
+  const [playerMove, setPlayerMove] = useState("");
+  const [opponentMove, setOpponentMove] = useState("");
 
   const allvalues = {
-    setGame,
-    game,
     nickName,
     setNickName,
     opponentName,
@@ -104,6 +101,10 @@ export default function App() {
     setToken,
     opponentToken,
     setOpponentToken,
+    playerMove,
+    setPlayerMove,
+    opponentMove,
+    setOpponentMove,
   };
 
   return (
