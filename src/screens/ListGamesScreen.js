@@ -27,13 +27,13 @@ export function ListGamesScreen() {
             {item.key % 2 == 0 && (
               <Image
                 style={styles.pic}
-                source={require("../../assets/paper.gif")}
+                source={require("../../assets/PAPER.gif")}
               />
             )}
             {item.key % 2 != 0 && (
               <Image
                 style={styles.pic}
-                source={require("../../assets/rock.gif")}
+                source={require("../../assets/ROCK.gif")}
               />
             )}
           </View>

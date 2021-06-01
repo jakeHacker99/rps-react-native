@@ -4,7 +4,7 @@ import { ThemeContext } from "react-native-elements";
 import AppContext from "../Context/AppContext";
 
 export function CreateToken() {
-  const { token, setToken } = useContext(AppContext);
+  const { setToken, setNickName } = useContext(AppContext);
 
   const url = "http://192.168.1.202:8080/tokens/new";
 
@@ -24,7 +24,7 @@ export function CreateToken() {
       })
 
       .catch((error) => console.error(error));
-  }, []);
+  }, [setNickName]);
 
-  return <Text></Text>;
+  return <Text> </Text>;
 }
