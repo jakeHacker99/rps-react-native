@@ -92,8 +92,11 @@ export default function App() {
   const [nickName, setNickName] = useState("");
   const [playerMove, setPlayerMove] = useState("");
   const [opponentMove, setOpponentMove] = useState("");
+  const [game, setGame] = useState("");
 
   const allvalues = {
+    game,
+    setGame,
     nickName,
     setNickName,
     opponentName,
