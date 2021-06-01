@@ -1,12 +1,11 @@
 import React, { useState, useEffect, useContext } from "react";
 import { View, StyleSheet, Text } from "react-native";
-import { ThemeContext } from "react-native-elements";
 import AppContext from "../Context/AppContext";
 
 export function CreateToken() {
-  const { token, setToken } = useContext(AppContext);
+  const { token, setToken } = React.useContext(AppContext);
 
-  const url = "http://192.168.1.202:8080/tokens/new";
+  const url = "http://192.168.1.181:8080/auth/token";
 
   useEffect(() => {
     fetch(url, {
@@ -26,5 +25,7 @@ export function CreateToken() {
       .catch((error) => console.error(error));
   }, []);
 
-  return <Text></Text>;
+  return <View>
+  <Text>{token}</Text>
+  </View>
 }

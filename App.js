@@ -15,12 +15,15 @@ import { ListGamesScreen } from "./src/Screens/ListGamesScreen";
 import { JoinablePlayersScreen } from "./src/Screens/JoinablePlayersScreen";
 
 import AppContext from "./src/Context/AppContext";
+import { StartGame } from "./src/Data/StartGame";
 
 function Start() {
   return (
     <View style={styles.container}>
       <StartScreen />
       <CreateToken />
+
+      {/* <StartGame/> */}
     </View>
   );
 }
@@ -82,15 +85,18 @@ function OfflineWinner() {
 const Stack = createStackNavigator();
 
 export default function App() {
-  <CreateToken />;
+
   const [opponentName] = useState("Yazan");
 
   const [token, setToken] = useState("");
+  const [game, setGame] = useState("");
 
   const [opponentToken, setOpponentToken] = useState("");
   const [nickName, setNickName] = useState("");
 
   const allvalues = {
+    setGame,
+    game,
     nickName,
     setNickName,
     opponentName,
