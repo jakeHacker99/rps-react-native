@@ -8,6 +8,13 @@ import AppContext from "../Context/AppContext";
 export function OfflineGameScreen() {
   const navigation = useContext(NavigationContext);
   const { playerMove, setPlayerMove, setOpponentMove } = useContext(AppContext);
+  const availableMoves = ["PAPER", "SCISSORS", "ROCK"];
+
+  function randomizeMove() {
+    const randomNumber = Math.random() * 3;
+    const index = Math.floor(randomNumber);
+    return availableMoves[index];
+  }
 
   return (
     <View style={styles.fixBackground}>
@@ -25,9 +32,9 @@ export function OfflineGameScreen() {
             style={{ height: 50, width: 70, marginTop: 20, marginRight: 20 }}
             type={"outline"}
             onPress={() => {
-              console.log("ROCK");
               setPlayerMove("ROCK");
-              setOpponentMove("PAPER");
+              setOpponentMove(randomizeMove());
+
               navigation.navigate("OfflineWinner");
             }}
           />
@@ -37,10 +44,8 @@ export function OfflineGameScreen() {
             style={{ height: 50, width: 70, marginTop: 20, marginRight: 20 }}
             type={"outline"}
             onPress={() => {
-              console.log("SCISSORS");
-
               setPlayerMove("SCISSORS");
-              setOpponentMove("PAPER");
+              setOpponentMove(randomizeMove());
               navigation.navigate("OfflineWinner");
             }}
           />
@@ -50,9 +55,8 @@ export function OfflineGameScreen() {
             style={{ height: 50, width: 70, marginTop: 20, marginRight: 20 }}
             type={"outline"}
             onPress={() => {
-              console.log("PAPER");
               setPlayerMove("PAPER");
-              setOpponentMove("SCISSORS");
+              setOpponentMove(randomizeMove());
 
               navigation.navigate("OfflineWinner");
             }}
