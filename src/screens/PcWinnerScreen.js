@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { NavigationContext } from "@react-navigation/native";
 
 import { StyleSheet, Text, View, Image } from "react-native";
+import { GetWinner } from "../Logic/GetWinner";
 
 import { Button } from "react-native-elements";
 import AppContext from "../Context/AppContext";
@@ -9,15 +10,16 @@ import AppContext from "../Context/AppContext";
 export function PcWinnerScreen() {
   const navigation = useContext(NavigationContext);
 
-  const { nickName, setNickName, playerMove, opponentName, opponentMove } =
+  const { setNickName, playerMove, opponentName, opponentMove } =
     useContext(AppContext);
 
   return (
     <View style={styles.fixBackground}>
       <View style={styles.container}>
-        <Text style={{ fontSize: 33, marginTop: 150 }}>hämta vinnare</Text>
+        <GetWinner />
+
         <Text>
-          {opponentName} valde: {opponentMove}{" "}
+          {opponentName} valde: {opponentMove}
         </Text>
         <Text style={{ fontSize: 33, marginTop: 30 }}></Text>
         {playerMove === "PAPER" && (
