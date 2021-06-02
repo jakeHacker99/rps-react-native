@@ -84,7 +84,7 @@ function OfflineWinner() {
 const Stack = createStackNavigator();
 
 export default function App() {
-  const [opponentName] = useState("Datorn");
+  const [opponentName, setOpponenName] = useState("Datorn");
 
   const [token, setToken] = useState("");
 
@@ -100,6 +100,7 @@ export default function App() {
     nickName,
     setNickName,
     opponentName,
+    setOpponenName,
     token,
     setToken,
     opponentToken,

@@ -5,7 +5,7 @@ import AppContext from "../Context/AppContext";
 export function CreateToken() {
   const { token, setToken } = React.useContext(AppContext);
 
-  const url = "http://192.168.1.181:8080/auth/token";
+  const url = "http://192.168.1.202:8080/auth/token";
 
   useEffect(() => {
     fetch(url, {
@@ -25,7 +25,9 @@ export function CreateToken() {
       .catch((error) => console.error(error));
   }, []);
 
-  return <View>
-  <Text>{token}</Text>
-  </View>
+  return (
+    <View>
+      <Text>{token}</Text>
+    </View>
+  );
 }

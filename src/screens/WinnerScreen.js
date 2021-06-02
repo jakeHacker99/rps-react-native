@@ -15,7 +15,7 @@ export function WinnerScreen() {
         <Text style={{ fontSize: 33, marginTop: 150 }}>
           {nickName} vann med:
         </Text>
-        <Image style={styles.pic} source={require("../../assets/rock.gif")} />
+        <Image style={styles.pic} source={require("../../assets/ROCK.gif")} />
       </View>
       <View style={styles.buttomRow}>
         <Button

@@ -6,7 +6,7 @@ export function GameList() {
   const { token, setToken } = React.useContext(AppContext);
 
   const url = "http://192.168.1.181:8080/games";
-  console.log("before useEffect",token);
+  console.log("before useEffect", token);
   useEffect((token) => {
     fetch(url, {
       method: "GET",
@@ -26,7 +26,9 @@ export function GameList() {
       .catch((error) => console.error(error));
   }, []);
 
-  return <View>
-  <Text>{token}</Text>
-  </View>
+  return (
+    <View>
+      <Text>{token}</Text>
+    </View>
+  );
 }
