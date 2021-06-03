@@ -3,8 +3,7 @@ import { View, StyleSheet, Text, FlatList } from "react-native";
 import AppContext from "../Context/AppContext";
 
 export function StartGame() {
-  const { token } = React.useContext(AppContext);
-  const { game, setGame } = React.useContext(AppContext);
+  const { token, setGameId } = React.useContext(AppContext);
 
   const url = "http://192.168.1.202:8080/games/start";
 
@@ -20,11 +19,13 @@ export function StartGame() {
     })
       .then((res) => res.json())
       .then((res) => {
-        console.log(res);
+        let gameId = JSON.parse(JSON.stringify(res.id));
+        setGameId(gameId);
+        console.log(gameId);
       })
 
       .catch((error) => console.error(error));
   }, []);
 
-  return <View>{/* <Text>{JSON.stringify(game)}</Text> */}</View>;
+  return <View></View>;
 }

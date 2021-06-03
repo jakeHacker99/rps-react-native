@@ -1,12 +1,14 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { StyleSheet, Text, View, TextInput } from "react-native";
 
 import { Button, Image } from "react-native-elements";
 import { NavigationContext } from "@react-navigation/native";
 import AppContext from "../Context/AppContext";
 import { CreateToken } from "../Data/CreateToken";
+import { CreateOpponentToken } from "../Data/CreateOpponentToken";
 export function StartScreen() {
   const navigation = useContext(NavigationContext);
+  const [gameId, setgameId] = useState("");
 
   const { nickName, setNickName } = useContext(AppContext);
 
@@ -21,7 +23,9 @@ export function StartScreen() {
       <TextInput
         style={styles.input}
         placeholder={"Ange ditt namn"}
-        onChangeText={(nickName) => setNickName(nickName)}
+        onChangeText={(nickName) => {
+          setNickName(nickName);
+        }}
         defaultValue={nickName}
       />
       {nickName.length < 3 && (
@@ -35,6 +39,7 @@ export function StartScreen() {
         />
       )}
       <CreateToken />
+      <CreateOpponentToken />
     </View>
   );
 }

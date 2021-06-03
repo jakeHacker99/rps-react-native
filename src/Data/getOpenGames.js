@@ -7,7 +7,7 @@ export function GetOpenGames() {
   const { gameId, setGameId } = React.useContext(AppContext);
 
   const url = "http://192.168.1.202:8080/games";
-  useEffect(() => {
+  useEffect((sign) => {
     fetch(url, {
       method: "GET",
       Accept: "application/json",
