@@ -21,14 +21,14 @@ export function WinnerScreen() {
         <Button
           title="Spela Igen"
           size={25}
-          style={{ height: 70, width: 70, marginTop: 20, marginRight: 20 }}
+          style={styles.styleButton}
           type={"outline"}
           onPress={() => navigation.navigate("Joina")}
         />
         <Button
           title="Avlsuta Spel"
           size={15}
-          style={{ height: 70, width: 70, marginTop: 20, marginRight: 20 }}
+          style={styles.styleButton}
           type={"outline"}
           onPress={() => {
             setNickName(""), navigation.navigate("Start");
@@ -70,4 +70,10 @@ const styles = StyleSheet.create({
     height: 200,
     marginTop: 40,
   },
+  styleButton:{
+    height: 70,
+     width: 70,
+     marginTop: 20,
+     marginRight: 20 
+  }
 });

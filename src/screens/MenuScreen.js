@@ -13,7 +13,7 @@ export function MenuScreen() {
   return (
     <View style={styles.fixBackground}>
       <View style={styles.container}>
-        <Text style={styles.title}>RPS {nickName}</Text>
+        <Text style={styles.title}>RPS ➣  {nickName}</Text>
       </View>
       <View style={styles.box}>
         <Button
@@ -80,7 +80,7 @@ const styles = StyleSheet.create({
   },
   title:{
     fontSize: 33,
-    marginTop: 50
+    marginTop: 50,
   },
   buttonUnder:{
     height: 50,

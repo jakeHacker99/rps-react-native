@@ -14,7 +14,7 @@ export function JoinablePlayersScreen() {
   return (
     <View style={styles.fixBackground}>
       <View style={styles.box}>
-        <Text style={{ fontSize: 35, marginBottom: 150 }}>
+        <Text style={styles.h1}>
           Tillängliga spelare:
         </Text>
       </View>
@@ -91,4 +91,8 @@ const styles = StyleSheet.create({
   left: {
     marginRight: 20,
   },
+  h1:{
+    fontSize: 35,
+    marginBottom: 150 
+  }
 });
