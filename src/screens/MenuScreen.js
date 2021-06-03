@@ -13,19 +13,19 @@ export function MenuScreen() {
   return (
     <View style={styles.fixBackground}>
       <View style={styles.container}>
-        <Text style={{ fontSize: 33, marginTop: 50 }}>RPS {nickName}</Text>
+        <Text style={styles.title}>RPS {nickName}</Text>
       </View>
       <View style={styles.box}>
         <Button
           title="Spela Online"
-          style={{ width: 150, marginTop: 150 }}
+          style={styles.onlineButton}
           type={"outline"}
           onPress={() => navigation.navigate("Joina")}
         />
 
         <Button
           title=" Spela Dator"
-          style={{ width: 150, marginTop: 20 }}
+          style={styles.offlineButton}
           type={"outline"}
           onPress={() => navigation.navigate("Offline")}
         />
@@ -34,7 +34,7 @@ export function MenuScreen() {
           <Button
             title="Hem"
             size={15}
-            style={{ height: 50, width: 70, marginTop: 20 }}
+            style={styles.buttonUnder}
             type={"outline"}
             onPress={() => navigation.navigate("Start")}
           />
@@ -42,7 +42,7 @@ export function MenuScreen() {
           <Button
             title="Historik"
             size={15}
-            style={{ height: 50, width: 70, marginTop: 20 }}
+            style={styles.buttonUnder}
             type={"outline"}
             onPress={() => navigation.navigate("History")}
           />
@@ -78,4 +78,21 @@ const styles = StyleSheet.create({
   buttonColor: {
     backgroundColor: "#00ff00",
   },
+  title:{
+    fontSize: 33,
+    marginTop: 50
+  },
+  buttonUnder:{
+    height: 50,
+    width: 70,
+    marginTop: 20
+  },
+  onlineButton:{
+    width: 150,
+    marginTop: 150
+  },
+  offlineButton:{
+    width: 150,
+    marginTop: 20
+  }
 });

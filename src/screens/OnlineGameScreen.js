@@ -14,9 +14,9 @@ export function OnlineGameScreen() {
   return (
     <View style={styles.fixBackground}>
       <View style={styles.container}>
-        <Text style={{ fontSize: 31, marginTop: 50 }}>Sten Sax Påse</Text>
+        <Text style={styles.h1}>Sten Sax Påse</Text>
         <Text
-          style={{ fontSize: 22, marginTop: 15, marginLeft: 25, width: 200 }}
+          style={styles.h2}
         >
           Välj sten sax eller påse för att spela
         </Text>
@@ -24,7 +24,7 @@ export function OnlineGameScreen() {
           <Button
             title="Sten"
             size={15}
-            style={{ height: 50, width: 70, marginTop: 20, marginRight: 20 }}
+            style={styles.styleButton}
             type={"outline"}
             onPress={() => {
               console.log("ROCK");
@@ -35,7 +35,7 @@ export function OnlineGameScreen() {
           <Button
             title="Sax"
             size={15}
-            style={{ height: 50, width: 70, marginTop: 20, marginRight: 20 }}
+            style={styles.styleButton}
             type={"outline"}
             onPress={() => {
               console.log("SCISSORS");
@@ -47,7 +47,7 @@ export function OnlineGameScreen() {
           <Button
             title="Påse"
             size={15}
-            style={{ height: 50, width: 70, marginTop: 20, marginRight: 20 }}
+            style={styles.styleButton}
             type={"outline"}
             onPress={() => {
               console.log("PAPER");
@@ -58,7 +58,7 @@ export function OnlineGameScreen() {
           />
         </View>
         <Text
-          style={{ fontSize: 22, marginTop: 15, marginLeft: 25, width: 200 }}
+          style={styles.h2}
         >
           spelare valde : {playerMove}
         </Text>
@@ -99,4 +99,20 @@ const styles = StyleSheet.create({
     marginBottom: 250,
     marginLeft: 20,
   },
+  styleButton:{
+    height: 50,
+     width: 70,
+     marginTop: 20,
+     marginRight: 20 
+  },
+  h1:{
+    fontSize: 31,
+    marginTop: 50
+  },
+  h2:{
+    fontSize: 22,
+    marginTop: 15,
+    marginLeft: 25,
+    width: 200 
+  }
 });

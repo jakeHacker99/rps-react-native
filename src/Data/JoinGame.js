@@ -4,6 +4,7 @@ import AppContext from "../Context/AppContext";
 
 export function JoinGame() {
   const { token, setToken } = React.useContext(AppContext);
+  const { gameId, setGameId } = React.useContext(AppContext);
 
   const url = "http://192.168.1.181:8080/games/join";
   console.log("before useEffect",token);
@@ -19,14 +20,14 @@ export function JoinGame() {
     })
       .then((res) => res.text())
       .then((res) => {
-        setToken(res);
-        console.log("token: ", res);
+        setGameId(res);
+        console.log("gameId: ", res);
       })
 
       .catch((error) => console.error(error));
   }, []);
 
   return <View>
-  <Text>{token}</Text>
+  <Text>{gameId}</Text>
   </View>
 }
