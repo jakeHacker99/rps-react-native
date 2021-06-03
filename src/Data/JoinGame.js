@@ -6,9 +6,8 @@ export function JoinGame() {
   const { token, setToken } = React.useContext(AppContext);
   const { gameId, setGameId } = React.useContext(AppContext);
 
-  const url = "http://192.168.1.181:8080/games/join";
-  console.log("before useEffect",token);
-  useEffect((token,gameId) => {
+  const url = "http://192.168.1.202:8080/games/join";
+  useEffect(() => {
     fetch(url, {
       method: "GET",
       Accept: "application/json",
@@ -18,16 +17,13 @@ export function JoinGame() {
         "Content-Type": "application/json",
       },
     })
-      .then((res) => res.text())
+      .then((res) => res.json())
       .then((res) => {
-        setGameId(res);
-        console.log("gameId: ", res);
+        console.log("token: ", res);
       })
 
       .catch((error) => console.error(error));
   }, []);
 
-  return <View>
-  <Text>{gameId}</Text>
-  </View>
+  return <View>{/* <Text>{gameId}</Text> */}</View>;
 }

@@ -25,9 +25,5 @@ export function CreateToken() {
       .catch((error) => console.error(error));
   }, []);
 
-  return (
-    <View>
-      <Text>{token}</Text>
-    </View>
-  );
+  return <View>{/* <Text>{token}</Text>{" "} */}</View>;
 }

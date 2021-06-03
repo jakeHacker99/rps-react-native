@@ -1,25 +1,29 @@
-// import React, { useState, useEffect, useContext } from "react";
-// import { View } from "react-native";
-// import AppContext from "../Context/AppContext";
+import React, { useState, useEffect, useContext } from "react";
+import { View, StyleSheet, Text } from "react-native";
+import AppContext from "../Context/AppContext";
 
+export function GetOpenGames() {
+  const { token, setToken } = React.useContext(AppContext);
+  const { gameId, setGameId } = React.useContext(AppContext);
 
-// export default function getOpenGames() {
-//   const { token, setToken } = React.useContext(AppContext);
-//   const url = "http://192.168.1.181:8080/games";
-  
-//   return fetch(url, {
-//       method: "GET",
-//       Accept: "application/json",
+  const url = "http://192.168.1.202:8080/games";
+  useEffect(() => {
+    fetch(url, {
+      method: "GET",
+      Accept: "application/json",
 
-//       headers: {
-//         token: token,
-//         "Content-Type": "application/json",
-//       },
-//     })
+      headers: {
+        token: token,
+        "Content-Type": "application/json",
+      },
+    })
+      .then((res) => res.json())
+      .then((res) => {
+        console.log("open games: ", res);
+      })
 
-//     .then((res)=> res.json())
-      
+      .catch((error) => console.error(error));
+  }, []);
 
- 
-// }
-
+  return <View>{/* <Text>{gameId}</Text> */}</View>;
+}

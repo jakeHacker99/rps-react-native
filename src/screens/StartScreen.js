@@ -4,7 +4,7 @@ import { StyleSheet, Text, View, TextInput } from "react-native";
 import { Button, Image } from "react-native-elements";
 import { NavigationContext } from "@react-navigation/native";
 import AppContext from "../Context/AppContext";
-
+import { CreateToken } from "../Data/CreateToken";
 export function StartScreen() {
   const navigation = useContext(NavigationContext);
 
@@ -18,7 +18,6 @@ export function StartScreen() {
         <Text style={styles.paper}>Paper </Text>
         <Text style={styles.scissors}>Scissors </Text>
       </View>
-
       <TextInput
         style={styles.input}
         placeholder={"Ange ditt namn"}
@@ -35,6 +34,7 @@ export function StartScreen() {
           onPress={() => navigation.navigate("Menu")}
         />
       )}
+      <CreateToken />
     </View>
   );
 }

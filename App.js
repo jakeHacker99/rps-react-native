@@ -6,6 +6,8 @@ import { createStackNavigator } from "@react-navigation/stack";
 
 import { CreateToken } from "./src/Data/CreateToken";
 import { StartGame } from "./src/Data/StartGame";
+import { JoinGame } from "./src/Data/JoinGame";
+import { GetOpenGames } from "./src/Data/GetOpenGames";
 
 import { StartScreen } from "./src/Screens/StartScreen";
 import { MenuScreen } from "./src/Screens/MenuScreen";
@@ -24,8 +26,6 @@ function Start() {
   return (
     <View style={styles.container}>
       <StartScreen />
-      <CreateToken />
-      <StartGame />
     </View>
   );
 }
@@ -50,6 +50,7 @@ function Menu() {
   return (
     <View style={styles.container}>
       <MenuScreen />
+      <StartGame />
     </View>
   );
 }
