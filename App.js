@@ -3,7 +3,9 @@ import { StyleSheet, View } from "react-native";
 
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
+
 import { CreateToken } from "./src/Data/CreateToken";
+import { StartGame } from "./src/Data/StartGame";
 
 import { StartScreen } from "./src/Screens/StartScreen";
 import { MenuScreen } from "./src/Screens/MenuScreen";
@@ -23,6 +25,7 @@ function Start() {
     <View style={styles.container}>
       <StartScreen />
       <CreateToken />
+      <StartGame />
     </View>
   );
 }
@@ -92,7 +95,7 @@ export default function App() {
   const [nickName, setNickName] = useState("");
   const [playerMove, setPlayerMove] = useState("");
   const [opponentMove, setOpponentMove] = useState("");
-  const [game, setGame] = useState("");
+  const [game, setGame] = useState([""]);
 
   const allvalues = {
     game,
