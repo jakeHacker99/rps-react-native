@@ -42,6 +42,7 @@ function Joina() {
   return (
     <View style={styles.container}>
       <JoinablePlayersScreen />
+      <JoinGame />
     </View>
   );
 }
@@ -50,7 +51,6 @@ function Menu() {
   return (
     <View style={styles.container}>
       <MenuScreen />
-      <StartGame />
     </View>
   );
 }
@@ -94,6 +94,7 @@ export default function App() {
 
   const [opponentToken, setOpponentToken] = useState("");
   const [nickName, setNickName] = useState("");
+  const [gameId, setGameId] = useState("");
   const [playerMove, setPlayerMove] = useState("");
   const [opponentMove, setOpponentMove] = useState("");
   const [game, setGame] = useState([""]);
@@ -113,6 +114,8 @@ export default function App() {
     setPlayerMove,
     opponentMove,
     setOpponentMove,
+    gameId,
+    setGameId,
   };
 
   return (

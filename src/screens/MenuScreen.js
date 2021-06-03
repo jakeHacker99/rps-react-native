@@ -3,6 +3,7 @@ import { StyleSheet, Text, View } from "react-native";
 
 import { NavigationContext } from "@react-navigation/native";
 
+import { StartGame } from "../Data/StartGame";
 import { Button } from "react-native-elements";
 import AppContext from "../Context/AppContext";
 
@@ -48,6 +49,7 @@ export function MenuScreen() {
           />
         </View>
       </View>
+      <StartGame />
     </View>
   );
 }
@@ -78,21 +80,21 @@ const styles = StyleSheet.create({
   buttonColor: {
     backgroundColor: "#00ff00",
   },
-  title:{
+  title: {
     fontSize: 33,
     marginTop: 50,
   },
-  buttonUnder:{
+  buttonUnder: {
     height: 50,
     width: 70,
-    marginTop: 20
+    marginTop: 20,
   },
-  onlineButton:{
+  onlineButton: {
     width: 150,
-    marginTop: 150
+    marginTop: 150,
   },
-  offlineButton:{
+  offlineButton: {
     width: 150,
-    marginTop: 20
-  }
+    marginTop: 20,
+  },
 });
