@@ -2,12 +2,13 @@ import React, { useState, useEffect, useContext } from "react";
 import { View, StyleSheet, Text } from "react-native";
 import AppContext from "../Context/AppContext";
 
-export function JoinGame() {
-  const { token, setToken } = React.useContext(AppContext);
+export function Movment() {
+  const { token, setToken, playerMove, setPlayerMove, opponentMove,setOpponentMove } = React.useContext(AppContext);
 
-  const url = "http://192.168.1.181:8080/games/move/";
+  const url = `http://192.168.1.181:8080/games/move/${playerMove}`;
+  
   console.log("before useEffect",token);
-  useEffect((token,move) => {
+  useEffect(() => {
     fetch(url, {
       method: "GET",
       Accept: "application/json",
@@ -19,14 +20,14 @@ export function JoinGame() {
     })
       .then((res) => res.text())
       .then((res) => {
-        setToken(res);
-        console.log("token: ", res);
+        setPlayerMove(playerMove);
+        console.log("game: ", res);
       })
 
       .catch((error) => console.error(error));
   }, []);
 
   return <View>
-  <Text>{token}</Text>
+  <Text>{playerMove}</Text>
   </View>
 }
