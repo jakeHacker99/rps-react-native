@@ -6,7 +6,7 @@ import AppContext from "../Context/AppContext";
 export function JoinGame() {
   const { gameId, opponentToken } = React.useContext(AppContext);
 
-  const url = `http://192.168.1.181:8080/games/join/` + gameId;
+  const url = `http://192.168.1.181:8080/games/join/${gameId}` 
   useEffect(() => {
     fetch(url, {
       method: "GET",
@@ -18,7 +18,8 @@ export function JoinGame() {
     })
       .then((res) => res.json())
       .then((res) => {
-        let gameId = JSON.parse(JSON.stringify(res.id));
+        console.log(res);
+        // let gameId = JSON.parse(JSON.stringify(res.id));
       })
 
       .catch((error) => console.error(error));
