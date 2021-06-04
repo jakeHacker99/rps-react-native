@@ -3,11 +3,18 @@ import { View, StyleSheet, Text } from "react-native";
 import AppContext from "../Context/AppContext";
 
 export function Movment() {
-  const { token, setToken, playerMove, setPlayerMove, opponentMove,setOpponentMove } = React.useContext(AppContext);
+  const {
+    token,
+    setToken,
+    playerMove,
+    setPlayerMove,
+    opponentMove,
+    setOpponentMove,
+  } = React.useContext(AppContext);
 
-  const url = `http://192.168.1.181:8080/games/move/${playerMove}`;
-  
-  console.log("before useEffect",token);
+  const url = `http://192.168.1.202:8080/games/move/${playerMove}`;
+
+  console.log("before useEffect", token);
   useEffect(() => {
     fetch(url, {
       method: "GET",
@@ -27,7 +34,9 @@ export function Movment() {
       .catch((error) => console.error(error));
   }, []);
 
-  return <View>
-  <Text>{playerMove}</Text>
-  </View>
+  return (
+    <View>
+      <Text>{playerMove}</Text>
+    </View>
+  );
 }

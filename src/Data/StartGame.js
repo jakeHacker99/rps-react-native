@@ -5,7 +5,7 @@ import AppContext from "../Context/AppContext";
 export function StartGame() {
   const { token, setGameId } = React.useContext(AppContext);
 
-  const url = "http://192.168.1.181:8080/games/start";
+  const url = "http://192.168.1.202:8080/games/start";
 
   useEffect(() => {
     fetch(url, {

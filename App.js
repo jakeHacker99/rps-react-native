@@ -13,6 +13,7 @@ import { StartScreen } from "./src/Screens/StartScreen";
 import { MenuScreen } from "./src/Screens/MenuScreen";
 import { OfflineGameScreen } from "./src/Screens/OfflineGameScreen";
 import { OnlineGameScreen } from "./src/Screens/OnlineGameScreen";
+import { OnlineGameScreenOpponent } from "./src/Screens/OnlineGameScreenOpponent";
 
 import { WinnerScreen } from "./src/Screens/WinnerScreen";
 import { PcWinnerScreen } from "./src/Screens/PcWinnerScreen";
@@ -42,7 +43,6 @@ function Joina() {
   return (
     <View style={styles.container}>
       <JoinablePlayersScreen />
-      <JoinGame />
     </View>
   );
 }
@@ -59,6 +59,13 @@ function Online() {
   return (
     <View style={styles.container}>
       <OnlineGameScreen />
+    </View>
+  );
+}
+function Online2() {
+  return (
+    <View style={styles.container}>
+      <OnlineGameScreenOpponent />
     </View>
   );
 }
@@ -126,6 +133,7 @@ export default function App() {
           <Stack.Screen name="Menu" component={Menu} />
           <Stack.Screen name="Offline" component={Offline} />
           <Stack.Screen name="Online" component={Online} />
+          <Stack.Screen name="Online2" component={Online2} />
 
           <Stack.Screen name="OfflineWinner" component={OfflineWinner} />
           <Stack.Screen name="Winner" component={Winner} />

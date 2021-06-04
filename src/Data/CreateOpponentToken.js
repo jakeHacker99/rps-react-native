@@ -5,7 +5,7 @@ import AppContext from "../Context/AppContext";
 export function CreateOpponentToken() {
   const { setOpponentToken } = React.useContext(AppContext);
 
-  const url = "http://192.168.1.181:8080/auth/token";
+  const url = "http://192.168.1.202:8080/auth/token";
 
   useEffect(() => {
     fetch(url, {

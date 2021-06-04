@@ -1,29 +1,54 @@
 import React, { useContext } from "react";
-import { StyleSheet, Text, View, Image } from "react-native";
-import { Button } from "react-native-elements";
-
 import { NavigationContext } from "@react-navigation/native";
+
+import { StyleSheet, Text, View, Image } from "react-native";
+import { GetWinner } from "../Logic/GetWinner";
+
+import { Button } from "react-native-elements";
 import AppContext from "../Context/AppContext";
 
 export function WinnerScreen() {
   const navigation = useContext(NavigationContext);
-  const { nickName, setNickName } = useContext(AppContext);
+
+  const { setNickName, playerMove, opponentName, opponentMove } =
+    useContext(AppContext);
 
   return (
     <View style={styles.fixBackground}>
       <View style={styles.container}>
-        <Text style={{ fontSize: 33, marginTop: 150 }}>
-          {nickName} vann med:
+        <GetWinner />
+
+        <Text>
+          {opponentName} valde: {opponentMove}
         </Text>
-        <Image style={styles.pic} source={require("../../assets/ROCK.gif")} />
+        <Text style={{ fontSize: 33, marginTop: 30 }}></Text>
+        {playerMove === "PAPER" && (
+          <Image
+            style={styles.pic}
+            source={require("../../assets/" + "PAPER" + ".gif")}
+          />
+        )}
+        {playerMove === "ROCK" && (
+          <Image
+            style={styles.pic}
+            source={require("../../assets/" + "ROCK" + ".gif")}
+          />
+        )}
+        {playerMove === "SCISSORS" && (
+          <Image
+            style={styles.pic}
+            source={require("../../assets/" + "SCISSORS" + ".gif")}
+          />
+        )}
       </View>
+
       <View style={styles.buttomRow}>
         <Button
           title="Spela Igen"
           size={25}
           style={styles.styleButton}
           type={"outline"}
-          onPress={() => navigation.navigate("Joina")}
+          onPress={() => navigation.navigate("Offline")}
         />
         <Button
           title="Avlsuta Spel"
@@ -70,10 +95,10 @@ const styles = StyleSheet.create({
     height: 200,
     marginTop: 40,
   },
-  styleButton:{
+  styleButton: {
     height: 70,
-     width: 70,
-     marginTop: 20,
-     marginRight: 20 
-  }
+    width: 70,
+    marginTop: 20,
+    marginRight: 20,
+  },
 });

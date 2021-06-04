@@ -5,9 +5,9 @@ import { StyleSheet, Text, View } from "react-native";
 import { Button } from "react-native-elements";
 import AppContext from "../Context/AppContext";
 
-export function OnlineGameScreen() {
+export function OnlineGameScreenOpponent() {
   const navigation = useContext(NavigationContext);
-  const { playerMove, setPlayerMove } = useContext(AppContext);
+  const { setOpponentMove, opponentName } = useContext(AppContext);
 
   return (
     <View style={styles.fixBackground}>
@@ -22,8 +22,8 @@ export function OnlineGameScreen() {
             type={"outline"}
             onPress={() => {
               console.log("ROCK");
-              setPlayerMove("ROCK");
-              navigation.navigate("Online2");
+              setOpponentMove("ROCK");
+              navigation.navigate("Winner");
             }}
           />
           <Button
@@ -33,24 +33,25 @@ export function OnlineGameScreen() {
             type={"outline"}
             onPress={() => {
               console.log("SCISSORS");
-              setPlayerMove("SCISSORS");
+              setOpponentMove("SCISSORS");
 
-              navigation.navigate("Online2");
+              navigation.navigate("Winner");
             }}
           />
           <Button
             title="Påse"
-            size={15}
+            size={25}
             style={styles.styleButton}
             type={"outline"}
             onPress={() => {
               console.log("PAPER");
-              setPlayerMove("PAPER");
+              setOpponentMove("PAPER");
 
-              navigation.navigate("Online2");
+              navigation.navigate("Winner");
             }}
           />
         </View>
+        <Text style={styles.opponentName}> {opponentName}s tur </Text>
       </View>
     </View>
   );
@@ -81,13 +82,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     flexDirection: "column",
   },
-  buttomRow: {
-    flexDirection: "row",
-    marginTop: 120,
-    justifyContent: "center",
-    marginBottom: 250,
-    marginLeft: 20,
-  },
+
   styleButton: {
     height: 50,
     width: 70,
@@ -102,6 +97,11 @@ const styles = StyleSheet.create({
   h2: {
     fontSize: 22,
     marginLeft: 25,
+    width: 200,
+  },
+  opponentName: {
+    fontSize: 22,
+    marginLeft: 90,
     width: 200,
   },
 });

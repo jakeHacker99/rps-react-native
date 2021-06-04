@@ -14,7 +14,7 @@ export function MenuScreen() {
   return (
     <View style={styles.fixBackground}>
       <View style={styles.container}>
-        <Text style={styles.title}>RPS ➣  {nickName}</Text>
+        <Text style={styles.title}>RPS ➣ {nickName}</Text>
       </View>
       <View style={styles.box}>
         <Button
