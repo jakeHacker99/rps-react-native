@@ -1,14 +1,16 @@
 import React, { useContext, useEffect } from "react";
 import { NavigationContext } from "@react-navigation/core";
 import { StyleSheet, Text, View } from "react-native";
-import { Movement } from "../Data/Movment";
 
 import { Button } from "react-native-elements";
 import AppContext from "../Context/AppContext";
+import changeOpponentMove from "../Data/OpponentMove";
 
 export function OnlineGameScreenOpponent() {
   const navigation = useContext(NavigationContext);
-  const { setOpponentMove, opponentName } = useContext(AppContext);
+
+  const { setOpponentMove, opponentName, opponentToken } =
+    useContext(AppContext);
 
   return (
     <View style={styles.fixBackground}>
@@ -22,8 +24,9 @@ export function OnlineGameScreenOpponent() {
             style={styles.styleButton}
             type={"outline"}
             onPress={() => {
-              console.log("ROCK");
               setOpponentMove("ROCK");
+              changeOpponentMove(setOpponentMove, opponentToken);
+
               navigation.navigate("Winner2");
             }}
           />
@@ -33,8 +36,8 @@ export function OnlineGameScreenOpponent() {
             style={styles.styleButton}
             type={"outline"}
             onPress={() => {
-              console.log("SCISSORS");
               setOpponentMove("SCISSORS");
+              changeOpponentMove(setOpponentMove, opponentToken);
 
               navigation.navigate("Winner2");
             }}
@@ -45,8 +48,8 @@ export function OnlineGameScreenOpponent() {
             style={styles.styleButton}
             type={"outline"}
             onPress={() => {
-              console.log("PAPER");
               setOpponentMove("PAPER");
+              changeOpponentMove(setOpponentMove, opponentToken);
 
               navigation.navigate("Winner2");
             }}

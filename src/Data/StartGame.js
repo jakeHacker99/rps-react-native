@@ -1,4 +1,4 @@
-const startGame = (token, setGameId, gameId) => {
+const startGame = (token, setGameId) => {
   const url = "http://192.168.1.202:8080/games/start";
 
   fetch(url, {
@@ -15,7 +15,7 @@ const startGame = (token, setGameId, gameId) => {
       let gameId = JSON.parse(JSON.stringify(res.id));
 
       setGameId(gameId);
-      console.log(res);
+      console.log("gameId:", gameId);
     })
 
     .catch((error) => console.error(error), []);

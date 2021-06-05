@@ -3,7 +3,6 @@ import { StyleSheet, Text, View } from "react-native";
 
 import { NavigationContext } from "@react-navigation/native";
 
-import StartGame from "../Data/StartGame";
 import { Button } from "react-native-elements";
 import AppContext from "../Context/AppContext";
 import startGame from "../Data/StartGame";

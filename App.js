@@ -104,19 +104,16 @@ const Stack = createStackNavigator();
 
 export default function App() {
   const [opponentName, setOpponenName] = useState("Datorn");
+  const [opponentToken, setOpponentToken] = useState("");
 
   const [token, setToken] = useState("");
-
-  const [opponentToken, setOpponentToken] = useState("");
   const [nickName, setNickName] = useState("");
-  const [gameId, setGameId] = useState("");
   const [playerMove, setPlayerMove] = useState("");
+
+  const [gameId, setGameId] = useState("");
   const [opponentMove, setOpponentMove] = useState("");
-  const [game, setGame] = useState([""]);
 
   const allvalues = {
-    game,
-    setGame,
     nickName,
     setNickName,
     opponentName,

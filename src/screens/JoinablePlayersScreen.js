@@ -27,7 +27,6 @@ export function JoinablePlayersScreen() {
             name="sign-in"
             type="font-awesome"
             onPress={() => {
-              console.log(opponentToken);
               joinGame(opponentToken, gameId);
               navigation.navigate("Online");
             }}
