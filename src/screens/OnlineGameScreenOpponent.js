@@ -1,6 +1,7 @@
 import React, { useContext, useEffect } from "react";
 import { NavigationContext } from "@react-navigation/core";
 import { StyleSheet, Text, View } from "react-native";
+import { Movement } from "../Data/Movment";
 
 import { Button } from "react-native-elements";
 import AppContext from "../Context/AppContext";
@@ -53,6 +54,7 @@ export function OnlineGameScreenOpponent() {
         </View>
         <Text style={styles.opponentName}> {opponentName}s tur </Text>
       </View>
+      <Movement />
     </View>
   );
 }
