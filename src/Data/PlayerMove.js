@@ -1,4 +1,4 @@
-const changePlayermove = (playerMove, token) => {
+const changePlayermove = (playerMove, token, setPlayerMove) => {
   const url = `http://192.168.1.202:8080/games/move/${playerMove}`;
 
   fetch(url, {
@@ -12,6 +12,7 @@ const changePlayermove = (playerMove, token) => {
   })
     .then((res) => {
       res.text();
+      setPlayerMove(playerMove);
       console.log("playermove: ", playerMove);
       console.log(res);
     })

@@ -23,7 +23,7 @@ export function OnlineGameScreen() {
             type={"outline"}
             onPress={() => {
               setPlayerMove("ROCK");
-              console.log("playermove: ", playerMove);
+              console.log("playermove: ", playerMove, setPlayerMove);
               changePlayermove(token, playerMove);
               console.log(playerMove);
 
@@ -37,7 +37,7 @@ export function OnlineGameScreen() {
             type={"outline"}
             onPress={() => {
               setPlayerMove("SCISSORS");
-              changePlayermove(token, playerMove);
+              changePlayermove(token, playerMove, setPlayerMove);
 
               console.log(playerMove);
 
@@ -51,7 +51,7 @@ export function OnlineGameScreen() {
             type={"outline"}
             onPress={() => {
               setPlayerMove("PAPER");
-              changePlayermove(token, playerMove);
+              changePlayermove(token, playerMove, setPlayerMove);
               console.log(playerMove);
 
               navigation.navigate("Online2");
