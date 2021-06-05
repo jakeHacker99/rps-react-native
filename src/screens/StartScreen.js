@@ -4,14 +4,33 @@ import { StyleSheet, Text, View, TextInput } from "react-native";
 import { Button, Image } from "react-native-elements";
 import { NavigationContext } from "@react-navigation/native";
 import AppContext from "../Context/AppContext";
-import { CreateToken } from "../Data/CreateToken";
 import { CreateOpponentToken } from "../Data/CreateOpponentToken";
+import getToken from "../Data/CreateToken";
+
 export function StartScreen() {
   const navigation = useContext(NavigationContext);
-  const [gameId, setgameId] = useState("");
 
-  const { nickName, setNickName } = useContext(AppContext);
+  const { token, setToken, nickName, setNickName } = useContext(AppContext);
 
+  const url = "http://192.168.1.202:8080/auth/token";
+
+  // const getToken = () => {
+  //   return fetch(url, {
+  //     method: "GET",
+  //     Accept: "application/json",
+
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //     },
+  //   })
+  //     .then((res) => res.text())
+  //     .then((res) => {
+  //       setToken(res);
+  //       console.log("token: ", res);
+  //     })
+
+  //     .catch((error) => console.error(error));
+  // };
   return (
     <View style={styles.container}>
       <Image style={styles.pic} source={require("../../assets/rps.png")} />
@@ -35,11 +54,12 @@ export function StartScreen() {
         <Button
           title={"Forsätt till meny"}
           type={"outline"}
-          onPress={() => navigation.navigate("Menu")}
+          onPress={() => {
+            getToken(setToken);
+            navigation.navigate("Menu");
+          }}
         />
       )}
-      <CreateToken />
-      <CreateOpponentToken />
     </View>
   );
 }

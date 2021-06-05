@@ -24,7 +24,7 @@ export function OnlineGameScreenOpponent() {
             onPress={() => {
               console.log("ROCK");
               setOpponentMove("ROCK");
-              navigation.navigate("Winner");
+              navigation.navigate("Winner2");
             }}
           />
           <Button
@@ -36,7 +36,7 @@ export function OnlineGameScreenOpponent() {
               console.log("SCISSORS");
               setOpponentMove("SCISSORS");
 
-              navigation.navigate("Winner");
+              navigation.navigate("Winner2");
             }}
           />
           <Button
@@ -48,13 +48,12 @@ export function OnlineGameScreenOpponent() {
               console.log("PAPER");
               setOpponentMove("PAPER");
 
-              navigation.navigate("Winner");
+              navigation.navigate("Winner2");
             }}
           />
         </View>
         <Text style={styles.opponentName}> {opponentName}s tur </Text>
       </View>
-      <Movement />
     </View>
   );
 }

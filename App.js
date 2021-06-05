@@ -16,6 +16,7 @@ import { OnlineGameScreen } from "./src/Screens/OnlineGameScreen";
 import { OnlineGameScreenOpponent } from "./src/Screens/OnlineGameScreenOpponent";
 
 import { WinnerScreen } from "./src/Screens/WinnerScreen";
+import { WinnerScreenOnline } from "./src/Screens/WinnerScreenOnline";
 import { PcWinnerScreen } from "./src/Screens/PcWinnerScreen";
 
 import { ListGamesScreen } from "./src/Screens/ListGamesScreen";
@@ -85,6 +86,13 @@ function Winner() {
     </View>
   );
 }
+function Winner2() {
+  return (
+    <View style={styles.container}>
+      <WinnerScreenOnline />
+    </View>
+  );
+}
 function OfflineWinner() {
   return (
     <View style={styles.container}>
@@ -136,6 +144,7 @@ export default function App() {
           <Stack.Screen name="Online2" component={Online2} />
 
           <Stack.Screen name="OfflineWinner" component={OfflineWinner} />
+          <Stack.Screen name="Winner2" component={Winner2} />
           <Stack.Screen name="Winner" component={Winner} />
 
           <Stack.Screen name="Joina" component={Joina} />

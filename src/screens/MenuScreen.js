@@ -3,13 +3,14 @@ import { StyleSheet, Text, View } from "react-native";
 
 import { NavigationContext } from "@react-navigation/native";
 
-import { StartGame } from "../Data/StartGame";
+import StartGame from "../Data/StartGame";
 import { Button } from "react-native-elements";
 import AppContext from "../Context/AppContext";
+import startGame from "../Data/StartGame";
 
 export function MenuScreen() {
   const navigation = useContext(NavigationContext);
-  const { nickName } = useContext(AppContext);
+  const { token, gameId, setGameId, nickName } = useContext(AppContext);
 
   return (
     <View style={styles.fixBackground}>
@@ -21,7 +22,10 @@ export function MenuScreen() {
           title="Spela Online"
           style={styles.onlineButton}
           type={"outline"}
-          onPress={() => navigation.navigate("Joina")}
+          onPress={() => {
+            startGame(token, setGameId, gameId);
+            navigation.navigate("Joina");
+          }}
         />
 
         <Button
@@ -49,7 +53,6 @@ export function MenuScreen() {
           />
         </View>
       </View>
-      <StartGame />
     </View>
   );
 }

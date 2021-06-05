@@ -1,16 +1,18 @@
 import React, { useContext } from "react";
 
 import { NavigationContext } from "@react-navigation/native";
-import { JoinGame } from "../Data/JoinGame";
 
 import { StyleSheet, Text, View } from "react-native";
 import { Icon, Button } from "react-native-elements";
 
 import AppContext from "../Context/AppContext";
+import joinGame from "../Data/JoinGame";
+import createOpponentToken from "../Data/CreateOpponentToken";
 
 export function JoinablePlayersScreen() {
   const navigation = useContext(NavigationContext);
-  const { nickName, opponentName } = useContext(AppContext);
+  const { gameId, opponentToken, nickName, opponentName, setOpponentToken } =
+    React.useContext(AppContext);
 
   return (
     <View style={styles.fixBackground}>
@@ -24,7 +26,11 @@ export function JoinablePlayersScreen() {
             icon={<Icon name="sign-in" size={25} type="font-awesome" />}
             name="sign-in"
             type="font-awesome"
-            onPress={() => navigation.navigate("Online")}
+            onPress={() => {
+              createOpponentToken(setOpponentToken);
+              joinGame(opponentToken, gameId);
+              navigation.navigate("Online");
+            }}
           />
         </View>
         <Text style={{ fontSize: 23 }}>{opponentName} </Text>
@@ -35,7 +41,11 @@ export function JoinablePlayersScreen() {
             icon={<Icon name="sign-in" size={25} type="font-awesome" />}
             name="sign-in"
             type="font-awesome"
-            onPress={() => navigation.navigate("Online")}
+            onPress={() => {
+              createOpponentToken(setOpponentToken);
+              joinGame(opponentToken, gameId);
+              navigation.navigate("Online");
+            }}
           />
         </View>
         <Text style={{ fontSize: 23 }}>{nickName} </Text>
@@ -46,12 +56,15 @@ export function JoinablePlayersScreen() {
             icon={<Icon name="sign-in" size={25} type="font-awesome" />}
             name="sign-in"
             type="font-awesome"
-            onPress={() => navigation.navigate("Online")}
+            onPress={() => {
+              createOpponentToken(setOpponentToken);
+              joinGame(opponentToken, gameId);
+              navigation.navigate("Online");
+            }}
           />
         </View>
         <Text style={{ fontSize: 23 }}>raketen </Text>
       </View>
-      <JoinGame />
     </View>
   );
 }
