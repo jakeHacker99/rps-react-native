@@ -15,7 +15,6 @@ const startGame = (token, setGameId, gameId) => {
       let gameId = JSON.parse(JSON.stringify(res.id));
 
       setGameId(gameId);
-      console.log(gameId);
       console.log(res);
     })
 

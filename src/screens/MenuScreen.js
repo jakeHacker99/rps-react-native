@@ -7,10 +7,12 @@ import StartGame from "../Data/StartGame";
 import { Button } from "react-native-elements";
 import AppContext from "../Context/AppContext";
 import startGame from "../Data/StartGame";
+import createOpponentToken from "../Data/CreateOpponentToken";
 
 export function MenuScreen() {
   const navigation = useContext(NavigationContext);
-  const { token, gameId, setGameId, nickName } = useContext(AppContext);
+  const { token, gameId, setGameId, nickName, setOpponentToken } =
+    useContext(AppContext);
 
   return (
     <View style={styles.fixBackground}>
@@ -24,6 +26,8 @@ export function MenuScreen() {
           type={"outline"}
           onPress={() => {
             startGame(token, setGameId, gameId);
+            createOpponentToken(setOpponentToken);
+
             navigation.navigate("Joina");
           }}
         />

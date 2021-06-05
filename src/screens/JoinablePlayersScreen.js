@@ -27,7 +27,7 @@ export function JoinablePlayersScreen() {
             name="sign-in"
             type="font-awesome"
             onPress={() => {
-              createOpponentToken(setOpponentToken);
+              console.log(opponentToken);
               joinGame(opponentToken, gameId);
               navigation.navigate("Online");
             }}
@@ -42,7 +42,6 @@ export function JoinablePlayersScreen() {
             name="sign-in"
             type="font-awesome"
             onPress={() => {
-              createOpponentToken(setOpponentToken);
               joinGame(opponentToken, gameId);
               navigation.navigate("Online");
             }}
@@ -57,7 +56,6 @@ export function JoinablePlayersScreen() {
             name="sign-in"
             type="font-awesome"
             onPress={() => {
-              createOpponentToken(setOpponentToken);
               joinGame(opponentToken, gameId);
               navigation.navigate("Online");
             }}
