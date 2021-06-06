@@ -6,8 +6,7 @@ import { StyleSheet, Text, View } from "react-native";
 import { Icon, Button } from "react-native-elements";
 
 import AppContext from "../Context/AppContext";
-import joinGame from "../Data/JoinGame";
-import createOpponentToken from "../Data/CreateOpponentToken";
+import { JoinGame } from "../Data/JoinGame";
 
 export function JoinablePlayersScreen() {
   const navigation = useContext(NavigationContext);
@@ -27,7 +26,6 @@ export function JoinablePlayersScreen() {
             name="sign-in"
             type="font-awesome"
             onPress={() => {
-              joinGame(opponentToken, gameId);
               navigation.navigate("Online");
             }}
           />
@@ -41,7 +39,6 @@ export function JoinablePlayersScreen() {
             name="sign-in"
             type="font-awesome"
             onPress={() => {
-              joinGame(opponentToken, gameId);
               navigation.navigate("Online");
             }}
           />
@@ -55,13 +52,13 @@ export function JoinablePlayersScreen() {
             name="sign-in"
             type="font-awesome"
             onPress={() => {
-              joinGame(opponentToken, gameId);
               navigation.navigate("Online");
             }}
           />
         </View>
         <Text style={{ fontSize: 23 }}>raketen </Text>
       </View>
+      <JoinGame />
     </View>
   );
 }

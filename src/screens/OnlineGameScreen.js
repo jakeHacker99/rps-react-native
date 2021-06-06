@@ -4,7 +4,7 @@ import { StyleSheet, Text, View } from "react-native";
 
 import { Button } from "react-native-elements";
 import AppContext from "../Context/AppContext";
-import changePlayermove from "../Data/PlayerMove";
+import { PlayerMove } from "../Data/PlayerMove";
 
 export function OnlineGameScreen() {
   const navigation = useContext(NavigationContext);
@@ -23,9 +23,7 @@ export function OnlineGameScreen() {
             type={"outline"}
             onPress={() => {
               setPlayerMove("ROCK");
-              console.log("playermove: ", playerMove, setPlayerMove);
-              changePlayermove(token, playerMove);
-              console.log(playerMove);
+              console.log("ROCK");
 
               navigation.navigate("Online2");
             }}
@@ -37,9 +35,8 @@ export function OnlineGameScreen() {
             type={"outline"}
             onPress={() => {
               setPlayerMove("SCISSORS");
-              changePlayermove(token, playerMove, setPlayerMove);
 
-              console.log(playerMove);
+              console.log("SCISSORS");
 
               navigation.navigate("Online2");
             }}
@@ -51,8 +48,7 @@ export function OnlineGameScreen() {
             type={"outline"}
             onPress={() => {
               setPlayerMove("PAPER");
-              changePlayermove(token, playerMove, setPlayerMove);
-              console.log(playerMove);
+              console.log("PAPER");
 
               navigation.navigate("Online2");
             }}

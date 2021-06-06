@@ -1,19 +1,31 @@
-const joinGame = (opponentToken, gameId) => {
+import React, { useState, useEffect, useContext } from "react";
+import { View, StyleSheet, Text } from "react-native";
+import { colors } from "react-native-elements";
+import AppContext from "../Context/AppContext";
+
+export function JoinGame() {
+  const { gameId, opponentToken } = React.useContext(AppContext);
+
   const url = `http://192.168.1.202:8080/games/join/${gameId}`;
-  fetch(url, {
-    method: "GET",
-    Accept: "application/json",
-    headers: {
-      token: opponentToken,
-      "Content-Type": "application/json",
-    },
-  })
-    .then((res) => res.json())
-    .then((res) => {
-      console.log(res);
+  useEffect(() => {
+    fetch(url, {
+      method: "GET",
+      Accept: "application/json",
+      headers: {
+        token: opponentToken,
+        "Content-Type": "application/json",
+      },
     })
+      .then((res) => res.json())
+      .then((res) => {
+        setTimeout(() => {
+          console.log(res);
+        }, 7000);
 
-    .catch((error) => console.error(error));
-};
+        // let gameId = JSON.parse(JSON.stringify(res.id));
+      })
 
-export default joinGame;
+      .catch((error) => console.error(error));
+  }, []);
+  return <View>{/* <Text>{gameId}</Text> */}</View>;
+}

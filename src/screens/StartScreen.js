@@ -4,7 +4,8 @@ import { StyleSheet, Text, View, TextInput } from "react-native";
 import { Button, Image } from "react-native-elements";
 import { NavigationContext } from "@react-navigation/native";
 import AppContext from "../Context/AppContext";
-import getToken from "../Data/CreateToken";
+import getToken, { CreateToken } from "../Data/CreateToken";
+import { CreateOpponentToken } from "../Data/CreateOpponentToken";
 
 export function StartScreen() {
   const navigation = useContext(NavigationContext);
@@ -35,11 +36,12 @@ export function StartScreen() {
           title={"Forsätt till meny"}
           type={"outline"}
           onPress={() => {
-            getToken(setToken);
             navigation.navigate("Menu");
           }}
         />
       )}
+      <CreateToken />
+      <CreateOpponentToken />
     </View>
   );
 }

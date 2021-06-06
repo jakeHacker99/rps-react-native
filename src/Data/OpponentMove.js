@@ -1,22 +1,36 @@
-const changeOpponentMove = (opponentMove, opponentToken) => {
+import React, { useState, useEffect, useContext } from "react";
+import { View, StyleSheet, Text } from "react-native";
+import AppContext from "../Context/AppContext";
+
+export function OpponentMove() {
+  const { opponentToken, opponentMove, setOpponentMove } =
+    React.useContext(AppContext);
+
   const url = `http://192.168.1.202:8080/games/move/${opponentMove}`;
 
-  fetch(url, {
-    method: "GET",
-    Accept: "application/json",
+  useEffect(() => {
+    fetch(url, {
+      method: "GET",
+      Accept: "application/json",
 
-    headers: {
-      token: opponentToken,
-      "Content-Type": "application/json",
-    },
-  })
-    .then((res) => {
-      res.text();
-      console.log("opponentMove: ", opponentMove);
-      console.log(res);
+      headers: {
+        token: opponentToken,
+        "Content-Type": "application/json",
+      },
     })
+      .then((res) => res.json())
+      .then((res) => {
+        setOpponentMove(opponentMove);
 
-    .catch((error) => console.error(error));
-};
+        console.log("game: ", res);
+      })
 
-export default changeOpponentMove;
+      .catch((error) => console.error(error));
+  }, [opponentMove]);
+
+  return (
+    <View>
+      <Text></Text>
+    </View>
+  );
+}

@@ -4,7 +4,8 @@ import { StyleSheet, Text, View } from "react-native";
 
 import { Button } from "react-native-elements";
 import AppContext from "../Context/AppContext";
-import changeOpponentMove from "../Data/OpponentMove";
+import changeOpponentMove, { OpponentMove } from "../Data/OpponentMove";
+import { PlayerMove } from "../Data/PlayerMove";
 
 export function OnlineGameScreenOpponent() {
   const navigation = useContext(NavigationContext);
@@ -25,7 +26,6 @@ export function OnlineGameScreenOpponent() {
             type={"outline"}
             onPress={() => {
               setOpponentMove("ROCK");
-              changeOpponentMove(setOpponentMove, opponentToken);
 
               navigation.navigate("Winner2");
             }}
@@ -37,7 +37,6 @@ export function OnlineGameScreenOpponent() {
             type={"outline"}
             onPress={() => {
               setOpponentMove("SCISSORS");
-              changeOpponentMove(setOpponentMove, opponentToken);
 
               navigation.navigate("Winner2");
             }}
@@ -49,7 +48,6 @@ export function OnlineGameScreenOpponent() {
             type={"outline"}
             onPress={() => {
               setOpponentMove("PAPER");
-              changeOpponentMove(setOpponentMove, opponentToken);
 
               navigation.navigate("Winner2");
             }}
@@ -57,6 +55,7 @@ export function OnlineGameScreenOpponent() {
         </View>
         <Text style={styles.opponentName}> {opponentName}s tur </Text>
       </View>
+      <PlayerMove />
     </View>
   );
 }

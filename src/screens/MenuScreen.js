@@ -5,7 +5,7 @@ import { NavigationContext } from "@react-navigation/native";
 
 import { Button } from "react-native-elements";
 import AppContext from "../Context/AppContext";
-import startGame from "../Data/StartGame";
+import { StartGame } from "../Data/StartGame";
 import createOpponentToken from "../Data/CreateOpponentToken";
 
 export function MenuScreen() {
@@ -24,9 +24,6 @@ export function MenuScreen() {
           style={styles.onlineButton}
           type={"outline"}
           onPress={() => {
-            startGame(token, setGameId, gameId);
-            createOpponentToken(setOpponentToken);
-
             navigation.navigate("Joina");
           }}
         />
@@ -56,6 +53,7 @@ export function MenuScreen() {
           />
         </View>
       </View>
+      <StartGame />
     </View>
   );
 }

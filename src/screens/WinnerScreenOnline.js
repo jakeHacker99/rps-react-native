@@ -1,11 +1,13 @@
 import React, { useContext } from "react";
 import { NavigationContext } from "@react-navigation/native";
+import RNRestart from "react-native-restart";
 
 import { StyleSheet, Text, View, Image } from "react-native";
 import { GetWinner } from "../Logic/GetWinner";
 
 import { Button } from "react-native-elements";
 import AppContext from "../Context/AppContext";
+import { OpponentMove } from "../Data/OpponentMove";
 
 export function WinnerScreenOnline() {
   const navigation = useContext(NavigationContext);
@@ -15,6 +17,8 @@ export function WinnerScreenOnline() {
 
   return (
     <View style={styles.fixBackground}>
+      <OpponentMove />
+
       <View style={styles.container}>
         <GetWinner />
 
@@ -48,7 +52,11 @@ export function WinnerScreenOnline() {
           size={25}
           style={styles.styleButton}
           type={"outline"}
-          onPress={() => navigation.navigate("Joina")}
+          onPress={() => {
+            window.location.reload();
+
+            navigation.navigate("Start");
+          }}
         />
         <Button
           title="Avlsuta Spel"
