@@ -21,8 +21,9 @@ export function OpponentMove() {
       .then((res) => res.json())
       .then((res) => {
         setOpponentMove(opponentMove);
-
-        console.log("game: ", res);
+        setTimeout(() => {
+          console.log("game: ", res);
+        }, 3000);
       })
 
       .catch((error) => console.error(error));

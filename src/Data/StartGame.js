@@ -22,7 +22,7 @@ export function StartGame() {
       .then((res) => {
         setTimeout(() => {
           console.log(res);
-        }, 4000);
+        }, 3000);
         let gameId = JSON.parse(JSON.stringify(res.id));
         setGameId(gameId);
       })
