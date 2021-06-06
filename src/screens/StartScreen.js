@@ -4,13 +4,13 @@ import { StyleSheet, Text, View, TextInput } from "react-native";
 import { Button, Image } from "react-native-elements";
 import { NavigationContext } from "@react-navigation/native";
 import AppContext from "../Context/AppContext";
-import getToken, { CreateToken } from "../Data/CreateToken";
+import { CreateToken } from "../Data/CreateToken";
 import { CreateOpponentToken } from "../Data/CreateOpponentToken";
 
 export function StartScreen() {
   const navigation = useContext(NavigationContext);
 
-  const { setToken, nickName, setNickName } = useContext(AppContext);
+  const { nickName, setNickName } = useContext(AppContext);
 
   return (
     <View style={styles.container}>
@@ -84,5 +84,4 @@ const styles = StyleSheet.create({
     marginTop: 20,
     width: 200,
   },
-  button: {},
 });

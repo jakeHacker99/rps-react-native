@@ -6,12 +6,10 @@ import { NavigationContext } from "@react-navigation/native";
 import { Button } from "react-native-elements";
 import AppContext from "../Context/AppContext";
 import { StartGame } from "../Data/StartGame";
-import createOpponentToken from "../Data/CreateOpponentToken";
 
 export function MenuScreen() {
   const navigation = useContext(NavigationContext);
-  const { token, gameId, setGameId, nickName, setOpponentToken } =
-    useContext(AppContext);
+  const { nickName } = useContext(AppContext);
 
   return (
     <View style={styles.fixBackground}>

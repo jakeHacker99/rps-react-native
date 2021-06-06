@@ -2,18 +2,18 @@ import React, { useContext } from "react";
 import { NavigationContext } from "@react-navigation/native";
 import RNRestart from "react-native-restart";
 
-import { StyleSheet, Text, View, Image } from "react-native";
+import { StyleSheet, View, Platform } from "react-native";
 import { GetWinner } from "../Logic/GetWinner";
 
 import { Button } from "react-native-elements";
 import AppContext from "../Context/AppContext";
 import { OpponentMove } from "../Data/OpponentMove";
+import ShowResult from "../Logic/ShowResult";
 
 export function WinnerScreenOnline() {
   const navigation = useContext(NavigationContext);
 
-  const { setNickName, playerMove, opponentName, opponentMove } =
-    useContext(AppContext);
+  const { setNickName } = useContext(AppContext);
 
   return (
     <View style={styles.fixBackground}>
@@ -21,29 +21,7 @@ export function WinnerScreenOnline() {
 
       <View style={styles.container}>
         <GetWinner />
-
-        <Text>
-          {opponentName} valde: {opponentMove}
-        </Text>
-        <Text style={{ fontSize: 33, marginTop: 30 }}></Text>
-        {playerMove === "PAPER" && (
-          <Image
-            style={styles.pic}
-            source={require("../../assets/" + "PAPER" + ".gif")}
-          />
-        )}
-        {playerMove === "ROCK" && (
-          <Image
-            style={styles.pic}
-            source={require("../../assets/" + "ROCK" + ".gif")}
-          />
-        )}
-        {playerMove === "SCISSORS" && (
-          <Image
-            style={styles.pic}
-            source={require("../../assets/" + "SCISSORS" + ".gif")}
-          />
-        )}
+        <ShowResult />
       </View>
 
       <View style={styles.buttomRow}>
@@ -53,7 +31,11 @@ export function WinnerScreenOnline() {
           style={styles.styleButton}
           type={"outline"}
           onPress={() => {
-            window.location.reload();
+            {
+              Platform.OS === "android"
+                ? RNRestart.restart()
+                : window.location.reload();
+            }
 
             navigation.navigate("Start");
           }}

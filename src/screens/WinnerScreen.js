@@ -6,6 +6,7 @@ import { GetWinner } from "../Logic/GetWinner";
 
 import { Button } from "react-native-elements";
 import AppContext from "../Context/AppContext";
+import ShowResult from "../Logic/ShowResult";
 
 export function WinnerScreen() {
   const navigation = useContext(NavigationContext);
@@ -18,28 +19,7 @@ export function WinnerScreen() {
       <View style={styles.container}>
         <GetWinner />
 
-        <Text>
-          {opponentName} valde: {opponentMove}
-        </Text>
-        <Text style={{ fontSize: 33, marginTop: 30 }}></Text>
-        {playerMove === "PAPER" && (
-          <Image
-            style={styles.pic}
-            source={require("../../assets/" + "PAPER" + ".gif")}
-          />
-        )}
-        {playerMove === "ROCK" && (
-          <Image
-            style={styles.pic}
-            source={require("../../assets/" + "ROCK" + ".gif")}
-          />
-        )}
-        {playerMove === "SCISSORS" && (
-          <Image
-            style={styles.pic}
-            source={require("../../assets/" + "SCISSORS" + ".gif")}
-          />
-        )}
+        <ShowResult />
       </View>
 
       <View style={styles.buttomRow}>
