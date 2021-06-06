@@ -24,11 +24,12 @@ export function PlayerMove() {
         setNickName(nickName);
         setTimeout(() => {
           console.log("game: ", res);
+          console.log("pm: ", playerMove, "nn: ", nickName);
         }, 2000);
       })
 
       .catch((error) => console.error(error));
-  }, [setPlayerMove, playerMove]);
+  }, []);
 
   return (
     <View>

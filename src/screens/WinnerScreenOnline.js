@@ -33,7 +33,7 @@ export function WinnerScreenOnline() {
           onPress={() => {
             {
               Platform.OS === "android"
-                ? RNRestart.restart()
+                ? (setNickName(""), navigation.navigate("Start"))
                 : window.location.reload();
             }
 
