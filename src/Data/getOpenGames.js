@@ -1,5 +1,5 @@
-import React, { useState, useEffect, useContext } from "react";
-import { View, StyleSheet, Text } from "react-native";
+import React, { useEffect } from "react";
+import { View } from "react-native";
 import AppContext from "../Context/AppContext";
 
 export function GetOpenGames() {
@@ -25,5 +25,5 @@ export function GetOpenGames() {
       .catch((error) => console.error(error));
   }, []);
 
-  return <View>{/* <Text>{gameId}</Text> */}</View>;
+  return <View></View>;
 }

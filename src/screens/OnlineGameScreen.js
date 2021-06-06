@@ -4,11 +4,9 @@ import { StyleSheet, Text, View } from "react-native";
 
 import { Button } from "react-native-elements";
 import AppContext from "../Context/AppContext";
-import { PlayerMove } from "../Data/PlayerMove";
-
 export function OnlineGameScreen() {
   const navigation = useContext(NavigationContext);
-  const { playerMove, setPlayerMove, token } = useContext(AppContext);
+  const { setPlayerMove } = useContext(AppContext);
 
   return (
     <View style={styles.fixBackground}>
@@ -23,7 +21,7 @@ export function OnlineGameScreen() {
             type={"outline"}
             onPress={() => {
               setPlayerMove("ROCK");
-              console.log("ROCK");
+              console.log("setting playerMove to Rock");
 
               navigation.navigate("Online2");
             }}
@@ -36,7 +34,7 @@ export function OnlineGameScreen() {
             onPress={() => {
               setPlayerMove("SCISSORS");
 
-              console.log("SCISSORS");
+              console.log("setting playerMove to Scissors");
 
               navigation.navigate("Online2");
             }}
@@ -48,7 +46,7 @@ export function OnlineGameScreen() {
             type={"outline"}
             onPress={() => {
               setPlayerMove("PAPER");
-              console.log("PAPER");
+              console.log("setting playerMove to Paper");
 
               navigation.navigate("Online2");
             }}
@@ -78,19 +76,7 @@ const styles = StyleSheet.create({
     marginLeft: 10,
     backgroundColor: "#fff",
   },
-  box: {
-    alignItems: "center",
-    alignContent: "center",
-    justifyContent: "center",
-    flexDirection: "column",
-  },
-  buttomRow: {
-    flexDirection: "row",
-    marginTop: 120,
-    justifyContent: "center",
-    marginBottom: 250,
-    marginLeft: 20,
-  },
+
   styleButton: {
     height: 50,
     width: 70,

@@ -1,5 +1,5 @@
-import React, { useState, useEffect, useContext } from "react";
-import { View, StyleSheet, Text } from "react-native";
+import React, { useEffect } from "react";
+import { View, Text } from "react-native";
 import AppContext from "../Context/AppContext";
 
 export function GameList() {
@@ -28,7 +28,7 @@ export function GameList() {
 
   return (
     <View>
-      <Text>{token}</Text>
+      <Text></Text>
     </View>
   );
 }

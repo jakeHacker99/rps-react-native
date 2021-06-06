@@ -20,12 +20,10 @@ export function JoinGame() {
       .then((res) => {
         setTimeout(() => {
           console.log(res);
-        }, 7000);
-
-        // let gameId = JSON.parse(JSON.stringify(res.id));
+        }, 5000);
       })
 
       .catch((error) => console.error(error));
   }, []);
-  return <View>{/* <Text>{gameId}</Text> */}</View>;
+  return <View></View>;
 }

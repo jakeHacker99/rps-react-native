@@ -4,14 +4,12 @@ import { StyleSheet, Text, View } from "react-native";
 
 import { Button } from "react-native-elements";
 import AppContext from "../Context/AppContext";
-import changeOpponentMove, { OpponentMove } from "../Data/OpponentMove";
 import { PlayerMove } from "../Data/PlayerMove";
 
 export function OnlineGameScreenOpponent() {
   const navigation = useContext(NavigationContext);
 
-  const { setOpponentMove, opponentName, opponentToken } =
-    useContext(AppContext);
+  const { setOpponentMove, opponentName } = useContext(AppContext);
 
   return (
     <View style={styles.fixBackground}>

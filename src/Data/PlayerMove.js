@@ -1,18 +1,10 @@
-import React, { useState, useEffect, useContext } from "react";
-import { View, StyleSheet, Text } from "react-native";
+import React, { useEffect } from "react";
+import { View, Text } from "react-native";
 import AppContext from "../Context/AppContext";
 
 export function PlayerMove() {
-  const {
-    token,
-    setToken,
-    playerMove,
-    setPlayerMove,
-    opponentMove,
-    setOpponentMove,
-    setNickName,
-    nickName,
-  } = React.useContext(AppContext);
+  const { token, playerMove, setPlayerMove, setNickName, nickName } =
+    React.useContext(AppContext);
 
   const url = `http://192.168.1.202:8080/games/move/${playerMove}`;
 

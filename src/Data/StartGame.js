@@ -1,6 +1,5 @@
-import React, { useState, useEffect, useContext } from "react";
-import { KeyboardAvoidingView } from "react-native";
-import { View, StyleSheet, Text, FlatList } from "react-native";
+import React, { useEffect } from "react";
+import { View } from "react-native";
 import AppContext from "../Context/AppContext";
 
 export function StartGame() {

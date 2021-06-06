@@ -10,8 +10,7 @@ import { JoinGame } from "../Data/JoinGame";
 
 export function JoinablePlayersScreen() {
   const navigation = useContext(NavigationContext);
-  const { gameId, opponentToken, nickName, opponentName, setOpponentToken } =
-    React.useContext(AppContext);
+  const { nickName, opponentName } = React.useContext(AppContext);
 
   return (
     <View style={styles.fixBackground}>
