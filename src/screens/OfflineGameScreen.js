@@ -2,7 +2,6 @@ import React, { useContext } from "react";
 import { NavigationContext } from "@react-navigation/core";
 import { StyleSheet, Text, View } from "react-native";
 
-import { Button } from "react-native-elements";
 import AppContext from "../Context/AppContext";
 import OurButton from "../components/OurButton";
 
@@ -87,12 +86,6 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     marginBottom: 250,
     marginLeft: 20,
-  },
-  styleButton: {
-    height: 50,
-    width: 70,
-    marginTop: 20,
-    marginRight: 20,
   },
   textStyle: {
     fontSize: 22,
