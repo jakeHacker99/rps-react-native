@@ -6,6 +6,7 @@ import { StyleSheet, Text, View, FlatList } from "react-native";
 import { Icon, Button } from "react-native-elements";
 import { JoinGame } from "../Data/JoinGame";
 import AppContext from "../Context/AppContext";
+import { Platform } from "react-native";
 
 export function JoinablePlayersScreen() {
   const navigation = useContext(NavigationContext);
@@ -18,8 +19,8 @@ export function JoinablePlayersScreen() {
   }
 
   const data = [
-    { name: "Jake", key: "0" },
-    { name: "Christian", key: "1" },
+    { name: "Christian", key: "0" },
+    { name: "Jakob", key: "1" },
     { name: "Yazan", key: "2" },
   ];
   const renderItem = ({ item }) => (
@@ -49,7 +50,7 @@ export function JoinablePlayersScreen() {
       <View style={styles.row}>
         <View style={styles.left}>
           <FlatList
-            style={{ height: 800, width: 300 }}
+            style={styles.flat}
             data={data}
             renderItem={renderItem}
             keyExtractor={(item) => item.key}
@@ -75,29 +76,19 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     alignItems: "center",
-    height: 40,
+    height: Platform.OS === "android" ? 120 : 40,
   },
 
-  buttomRow: {
-    flexDirection: "row",
-    marginTop: 50,
-    justifyContent: "center",
-    marginLeft: 20,
-  },
-  pic: {
-    width: 100,
-    height: 100,
-    marginTop: 50,
-  },
-  textStyle: {
-    fontSize: 23,
-    marginTop: 30,
-  },
   left: {
     marginRight: 20,
   },
   h1: {
     fontSize: 35,
     marginBottom: 50,
+  },
+  flat: {
+    marginTop: Platform.OS === "android" ? 0 : 50,
+    height: Platform.OS === "android" ? 200 : 80,
+    width: 300,
   },
 });
