@@ -5,6 +5,7 @@ import { StyleSheet, Text, View } from "react-native";
 import { Button } from "react-native-elements";
 import AppContext from "../Context/AppContext";
 import { PlayerMove } from "../Data/PlayerMove";
+import OurButton from "../components/OurButton";
 
 export function OnlineGameScreenOpponent() {
   const navigation = useContext(NavigationContext);
@@ -17,36 +18,24 @@ export function OnlineGameScreenOpponent() {
         <Text style={styles.h1}>Sten Sax Påse</Text>
         <Text style={styles.h2}>Välj sten sax eller påse för att spela</Text>
         <View style={styles.lowRow}>
-          <Button
+        <OurButton
             title="Sten"
-            size={15}
-            style={styles.styleButton}
-            type={"outline"}
             onPress={() => {
               setOpponentMove("ROCK");
-
               navigation.navigate("Winner2");
             }}
           />
-          <Button
+          <OurButton
             title="Sax"
-            size={15}
-            style={styles.styleButton}
-            type={"outline"}
             onPress={() => {
               setOpponentMove("SCISSORS");
-
               navigation.navigate("Winner2");
             }}
           />
-          <Button
+          <OurButton
             title="Påse"
-            size={25}
-            style={styles.styleButton}
-            type={"outline"}
             onPress={() => {
               setOpponentMove("PAPER");
-
               navigation.navigate("Winner2");
             }}
           />
@@ -84,12 +73,6 @@ const styles = StyleSheet.create({
     flexDirection: "column",
   },
 
-  styleButton: {
-    height: 50,
-    width: 70,
-    marginTop: 20,
-    marginRight: 20,
-  },
   h1: {
     fontSize: 31,
     marginTop: 50,

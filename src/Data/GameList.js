@@ -5,7 +5,7 @@ import AppContext from "../Context/AppContext";
 export function GameList() {
   const { token, setToken } = React.useContext(AppContext);
 
-  const url = "http://192.168.1.202:8080/games";
+  const url = "http://192.168.1.181:8080/games";
   console.log("before useEffect", token);
   useEffect((token) => {
     fetch(url, {

@@ -6,7 +6,7 @@ export function GetOpenGames() {
   const { token, setToken } = React.useContext(AppContext);
   const { gameId, setGameId } = React.useContext(AppContext);
 
-  const url = "http://192.168.1.202:8080/games";
+  const url = "http://192.168.1.181:8080/games";
   useEffect((sign) => {
     fetch(url, {
       method: "GET",

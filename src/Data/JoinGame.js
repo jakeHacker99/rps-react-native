@@ -6,7 +6,7 @@ import AppContext from "../Context/AppContext";
 export function JoinGame() {
   const { gameId, opponentToken } = React.useContext(AppContext);
 
-  const url = `http://192.168.1.202:8080/games/join/${gameId}`;
+  const url = `http://192.168.1.181:8080/games/join/${gameId}`;
   useEffect(() => {
     fetch(url, {
       method: "GET",

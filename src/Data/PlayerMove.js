@@ -13,7 +13,7 @@ export function PlayerMove() {
     opponentName,
   } = React.useContext(AppContext);
 
-  const url = `http://192.168.1.202:8080/games/move/${playerMove}`;
+  const url = `http://192.168.1.181:8080/games/move/${playerMove}`;
 
   useEffect(() => {
     fetch(url, {

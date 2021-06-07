@@ -4,6 +4,7 @@ import { StyleSheet, Text, View } from "react-native";
 
 import { Button } from "react-native-elements";
 import AppContext from "../Context/AppContext";
+import OurButton from "../components/OurButton"
 export function OnlineGameScreen() {
   const navigation = useContext(NavigationContext);
   const { setPlayerMove } = useContext(AppContext);
@@ -14,36 +15,25 @@ export function OnlineGameScreen() {
         <Text style={styles.h1}>Sten Sax Påse</Text>
         <Text style={styles.h2}>Välj sten sax eller påse för att spela</Text>
         <View style={styles.lowRow}>
-          <Button
+          
+          <OurButton
             title="Sten"
-            size={15}
-            style={styles.styleButton}
-            type={"outline"}
             onPress={() => {
               setPlayerMove("ROCK");
-
               navigation.navigate("Online2");
             }}
           />
-          <Button
+          <OurButton
             title="Sax"
-            size={15}
-            style={styles.styleButton}
-            type={"outline"}
             onPress={() => {
               setPlayerMove("SCISSORS");
-
               navigation.navigate("Online2");
             }}
           />
-          <Button
+          <OurButton
             title="Påse"
-            size={15}
-            style={styles.styleButton}
-            type={"outline"}
             onPress={() => {
               setPlayerMove("PAPER");
-
               navigation.navigate("Online2");
             }}
           />
@@ -71,13 +61,6 @@ const styles = StyleSheet.create({
     marginBottom: 150,
     marginLeft: 10,
     backgroundColor: "#fff",
-  },
-
-  styleButton: {
-    height: 50,
-    width: 70,
-    marginTop: 20,
-    marginRight: 20,
   },
   h1: {
     fontSize: 31,
