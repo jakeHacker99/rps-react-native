@@ -102,7 +102,8 @@ const styles = StyleSheet.create({
   },
   opponentName: {
     fontSize: 22,
-    marginLeft: 90,
+    marginLeft: 60,
     width: 200,
+    justifyContent: "center",
   },
 });

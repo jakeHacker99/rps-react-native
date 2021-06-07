@@ -21,7 +21,6 @@ export function OnlineGameScreen() {
             type={"outline"}
             onPress={() => {
               setPlayerMove("ROCK");
-              console.log("setting playerMove to Rock");
 
               navigation.navigate("Online2");
             }}
@@ -34,8 +33,6 @@ export function OnlineGameScreen() {
             onPress={() => {
               setPlayerMove("SCISSORS");
 
-              console.log("setting playerMove to Scissors");
-
               navigation.navigate("Online2");
             }}
           />
@@ -46,7 +43,6 @@ export function OnlineGameScreen() {
             type={"outline"}
             onPress={() => {
               setPlayerMove("PAPER");
-              console.log("setting playerMove to Paper");
 
               navigation.navigate("Online2");
             }}

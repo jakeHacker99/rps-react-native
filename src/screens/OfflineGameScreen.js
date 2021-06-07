@@ -20,9 +20,7 @@ export function OfflineGameScreen() {
     <View style={styles.fixBackground}>
       <View style={styles.container}>
         <Text style={styles.title}>Sten Sax Påse</Text>
-        <Text
-          style={styles.textStyle}
-        >
+        <Text style={styles.textStyle}>
           Välj sten sax eller påse för att spela
         </Text>
         <View style={styles.lowRow}>
@@ -62,11 +60,7 @@ export function OfflineGameScreen() {
             }}
           />
         </View>
-        <Text
-          style={styles.textStyle}
-        >
-          spelare valde : {playerMove}
-        </Text>
+        <Text style={styles.textStyle}></Text>
       </View>
     </View>
   );
@@ -108,16 +102,16 @@ const styles = StyleSheet.create({
     height: 50,
     width: 70,
     marginTop: 20,
-    marginRight: 20
+    marginRight: 20,
   },
   textStyle: {
     fontSize: 22,
     marginTop: 15,
     marginLeft: 25,
-    width: 200
+    width: 200,
   },
-  title:{
+  title: {
     fontSize: 31,
-    marginTop: 50
-  }
+    marginTop: 50,
+  },
 });

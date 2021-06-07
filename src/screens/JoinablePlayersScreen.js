@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useContext, useEffect } from "react";
 
 import { NavigationContext } from "@react-navigation/native";
 
@@ -9,22 +9,21 @@ import AppContext from "../Context/AppContext";
 
 export function JoinablePlayersScreen() {
   const navigation = useContext(NavigationContext);
-  const { setOpponenName, opponentName } = React.useContext(AppContext);
+  const { setOpponentName } = React.useContext(AppContext);
 
   function handleName(key) {
     const name = "";
     data[key].name = name;
-    setOpponenName(name);
-    console.log(opponentName);
+    setOpponentName(name);
   }
 
   const data = [
-    { name: "jake", key: "0" },
-    { name: "david", key: "1" },
-    { name: "hasssan", key: "2" },
+    { name: "Jake", key: "0" },
+    { name: "Christian", key: "1" },
+    { name: "Yazan", key: "2" },
   ];
   const renderItem = ({ item }) => (
-    <View>
+    <View style={styles.row}>
       <Button
         style={{ flexDirection: "row" }}
         icon={<Icon name="sign-in" size={25} type="font-awesome" />}
@@ -43,13 +42,14 @@ export function JoinablePlayersScreen() {
 
   return (
     <View style={styles.fixBackground}>
-      <View style={styles.box}>
+      <View style={styles.row}>
         <Text style={styles.h1}>Tillängliga spelare:</Text>
       </View>
 
       <View style={styles.row}>
         <View style={styles.left}>
           <FlatList
+            style={{ height: 800, width: 300 }}
             data={data}
             renderItem={renderItem}
             keyExtractor={(item) => item.key}
@@ -75,7 +75,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     alignItems: "center",
-    height: 120,
+    height: 40,
   },
 
   buttomRow: {
@@ -98,6 +98,6 @@ const styles = StyleSheet.create({
   },
   h1: {
     fontSize: 35,
-    marginBottom: 150,
+    marginBottom: 50,
   },
 });

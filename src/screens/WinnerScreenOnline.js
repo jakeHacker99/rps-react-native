@@ -13,7 +13,7 @@ import ShowResult from "../Logic/ShowResult";
 export function WinnerScreenOnline() {
   const navigation = useContext(NavigationContext);
 
-  const { setNickName } = useContext(AppContext);
+  const { setNickName, setOpponentName } = useContext(AppContext);
 
   return (
     <View style={styles.fixBackground}>
@@ -46,7 +46,9 @@ export function WinnerScreenOnline() {
           style={styles.styleButton}
           type={"outline"}
           onPress={() => {
-            setNickName(""), navigation.navigate("Start");
+            setNickName(""),
+              setOpponentName("Datorn"),
+              navigation.navigate("Start");
           }}
         />
       </View>

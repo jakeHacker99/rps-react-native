@@ -28,7 +28,15 @@ export function WinnerScreen() {
           size={25}
           style={styles.styleButton}
           type={"outline"}
-          onPress={() => navigation.navigate("Offline")}
+          onPress={() => {
+            {
+              Platform.OS === "android"
+                ? (setNickName(""), navigation.navigate("Start"))
+                : (setOpponentName("dator2"),
+                  setNickName(""),
+                  window.location.reload());
+            }
+          }}
         />
         <Button
           title="Avlsuta Spel"

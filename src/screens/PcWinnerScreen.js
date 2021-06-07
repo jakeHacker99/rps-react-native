@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { NavigationContext } from "@react-navigation/native";
 
-import { StyleSheet, Text, View, Image } from "react-native";
+import { StyleSheet, View, Platform } from "react-native";
 import { GetWinner } from "../Logic/GetWinner";
 
 import { Button } from "react-native-elements";
@@ -11,7 +11,7 @@ import ShowResult from "../Logic/ShowResult";
 export function PcWinnerScreen() {
   const navigation = useContext(NavigationContext);
 
-  const { setNickName, opponentName, opponentMove } = useContext(AppContext);
+  const { setNickName, setOpponentName } = useContext(AppContext);
 
   return (
     <View style={styles.fixBackground}>
@@ -35,7 +35,13 @@ export function PcWinnerScreen() {
           style={styles.styleButton}
           type={"outline"}
           onPress={() => {
-            setNickName(""), navigation.navigate("Start");
+            {
+              Platform.OS === "android"
+                ? (setNickName(""), navigation.navigate("Start"))
+                : (setOpponentName("dator2"),
+                  setNickName(""),
+                  window.location.reload());
+            }
           }}
         />
       </View>
@@ -53,15 +59,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
     marginTop: 50,
   },
-  row: {
-    flexDirection: "row",
-  },
-  box: {
-    alignItems: "center",
-    alignContent: "center",
-    justifyContent: "center",
-    flexDirection: "column",
-  },
+
   buttomRow: {
     flexDirection: "row",
     marginTop: 120,
@@ -69,11 +67,7 @@ const styles = StyleSheet.create({
     marginBottom: 250,
     marginLeft: 20,
   },
-  pic: {
-    width: 200,
-    height: 200,
-    marginTop: 40,
-  },
+
   styleButton: {
     height: 70,
     width: 70,
