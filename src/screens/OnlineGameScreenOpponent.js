@@ -2,7 +2,6 @@ import React, { useContext, useEffect } from "react";
 import { NavigationContext } from "@react-navigation/core";
 import { StyleSheet, Text, View } from "react-native";
 
-import { Button } from "react-native-elements";
 import AppContext from "../Context/AppContext";
 import { PlayerMove } from "../Data/PlayerMove";
 import OurButton from "../components/OurButton";

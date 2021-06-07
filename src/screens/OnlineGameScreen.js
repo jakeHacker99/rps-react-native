@@ -2,7 +2,6 @@ import React, { useContext, useEffect } from "react";
 import { NavigationContext } from "@react-navigation/core";
 import { StyleSheet, Text, View } from "react-native";
 
-import { Button } from "react-native-elements";
 import AppContext from "../Context/AppContext";
 import OurButton from "../components/OurButton"
 export function OnlineGameScreen() {
@@ -15,7 +14,7 @@ export function OnlineGameScreen() {
         <Text style={styles.h1}>Sten Sax Påse</Text>
         <Text style={styles.h2}>Välj sten sax eller påse för att spela</Text>
         <View style={styles.lowRow}>
-          
+
           <OurButton
             title="Sten"
             onPress={() => {

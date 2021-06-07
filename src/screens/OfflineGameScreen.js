@@ -4,6 +4,7 @@ import { StyleSheet, Text, View } from "react-native";
 
 import { Button } from "react-native-elements";
 import AppContext from "../Context/AppContext";
+import OurButton from "../components/OurButton";
 
 export function OfflineGameScreen() {
   const navigation = useContext(NavigationContext);
@@ -24,38 +25,27 @@ export function OfflineGameScreen() {
           Välj sten sax eller påse för att spela
         </Text>
         <View style={styles.lowRow}>
-          <Button
+        <OurButton
             title="Sten"
-            size={15}
-            style={styles.styleButton}
-            type={"outline"}
             onPress={() => {
               setPlayerMove("ROCK");
               setOpponentMove(randomizeMove());
-
               navigation.navigate("OfflineWinner");
             }}
           />
-          <Button
+          <OurButton
             title="Sax"
-            size={15}
-            style={styles.styleButton}
-            type={"outline"}
             onPress={() => {
               setPlayerMove("SCISSORS");
               setOpponentMove(randomizeMove());
               navigation.navigate("OfflineWinner");
             }}
           />
-          <Button
+          <OurButton
             title="Påse"
-            size={15}
-            style={styles.styleButton}
-            type={"outline"}
             onPress={() => {
               setPlayerMove("PAPER");
               setOpponentMove(randomizeMove());
-
               navigation.navigate("OfflineWinner");
             }}
           />
