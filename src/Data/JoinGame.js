@@ -1,11 +1,10 @@
-import React, { useEffect, useContext, useState } from "react";
+import React, { useEffect } from "react";
 import { Platform } from "react-native";
-import { View, StyleSheet, Text, ActivityIndicator } from "react-native";
+import { View, StyleSheet } from "react-native";
 import AppContext from "../Context/AppContext";
 
 export function JoinGame() {
-  const { gameId, opponentToken, setError, error } =
-    React.useContext(AppContext);
+  const { gameId, opponentToken, setError } = React.useContext(AppContext);
 
   const url = `http://192.168.1.202:8080/games/join/${gameId}`;
   useEffect(() => {
