@@ -1,9 +1,11 @@
 import React, { useContext } from "react";
 import { StyleSheet, Text, View, TextInput } from "react-native";
 
-import { Button, Image } from "react-native-elements";
 import { NavigationContext } from "@react-navigation/native";
 import AppContext from "../Context/AppContext";
+
+import { Button, Image } from "react-native-elements";
+
 import { CreateToken } from "../Data/CreateToken";
 import { CreateOpponentToken } from "../Data/CreateOpponentToken";
 
