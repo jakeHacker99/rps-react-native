@@ -1,9 +1,11 @@
-import React, { useContext, useEffect } from "react";
-import { NavigationContext } from "@react-navigation/core";
+import React, { useContext } from "react";
 import { StyleSheet, Text, View } from "react-native";
 
+import { NavigationContext } from "@react-navigation/core";
 import AppContext from "../Context/AppContext";
+
 import { PlayerMove } from "../Data/PlayerMove";
+
 import RockButton from "../components/RockButton";
 import ScissorsButton from "../components/ScissorsButton";
 import PaperButton from "../components/PaperButton";
@@ -11,8 +13,7 @@ import PaperButton from "../components/PaperButton";
 export function OnlineGameScreenOpponent() {
   const navigation = useContext(NavigationContext);
 
-  const { setOpponentMove, opponentName, pickedPlayer } =
-    useContext(AppContext);
+  const { setOpponentMove, opponentName } = useContext(AppContext);
 
   return (
     <View style={styles.fixBackground}>
@@ -64,12 +65,6 @@ const styles = StyleSheet.create({
     marginBottom: 150,
     marginLeft: 10,
     backgroundColor: "#fff",
-  },
-  box: {
-    alignItems: "center",
-    alignContent: "center",
-    justifyContent: "center",
-    flexDirection: "column",
   },
 
   h1: {
