@@ -1,14 +1,13 @@
 import React, { useContext } from "react";
 import { StyleSheet, View, Platform } from "react-native";
+import { Button } from "react-native-elements";
 
+import AppContext from "../Context/AppContext";
 import { NavigationContext } from "@react-navigation/native";
 
 import { GetWinner } from "../Logic/GetWinner";
-
-import { Button } from "react-native-elements";
 import { OpponentMove } from "../Data/OpponentMove";
 
-import AppContext from "../Context/AppContext";
 import ShowResult from "../Logic/ShowResult";
 
 export function WinnerScreenOnline() {
@@ -70,7 +69,6 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
     marginTop: 50,
   },
-
   buttomRow: {
     flexDirection: "row",
     marginTop: 120,
@@ -78,7 +76,6 @@ const styles = StyleSheet.create({
     marginBottom: 250,
     marginLeft: 20,
   },
-
   styleButton: {
     height: 70,
     width: 70,
