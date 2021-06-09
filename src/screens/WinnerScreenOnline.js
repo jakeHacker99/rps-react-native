@@ -34,10 +34,10 @@ export function WinnerScreenOnline() {
             {
               Platform.OS === "android"
                 ? navigation.navigate("Start")
-                : console.log("nytt spel skapat");
+                : (window.location.reload(), navigation.navigate("Start"));
             }
 
-            navigation.navigate("Joina");
+            navigation.navigate("Menu");
           }}
         />
         <Button
@@ -69,15 +69,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
     marginTop: 50,
   },
-  row: {
-    flexDirection: "row",
-  },
-  box: {
-    alignItems: "center",
-    alignContent: "center",
-    justifyContent: "center",
-    flexDirection: "column",
-  },
+
   buttomRow: {
     flexDirection: "row",
     marginTop: 120,
@@ -85,11 +77,7 @@ const styles = StyleSheet.create({
     marginBottom: 250,
     marginLeft: 20,
   },
-  pic: {
-    width: 200,
-    height: 200,
-    marginTop: 40,
-  },
+
   styleButton: {
     height: 70,
     width: 70,
