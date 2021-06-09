@@ -3,7 +3,9 @@ import { NavigationContext } from "@react-navigation/core";
 import { StyleSheet, Text, View } from "react-native";
 
 import AppContext from "../Context/AppContext";
-import OurButton from "../components/OurButton";
+import RockButton from "../components/RockButton";
+import ScissorsButton from "../components/ScissorsButton";
+import PaperButton from "../components/PaperButton";
 
 export function OfflineGameScreen() {
   const navigation = useContext(NavigationContext);
@@ -24,24 +26,22 @@ export function OfflineGameScreen() {
           Välj sten sax eller påse för att spela
         </Text>
         <View style={styles.lowRow}>
-        <OurButton
-            title="Sten"
-            onPress={() => {
-              setPlayerMove("ROCK");
-              setOpponentMove(randomizeMove());
-              navigation.navigate("OfflineWinner");
-            }}
-          />
-          <OurButton
-            title="Sax"
+
+          <RockButton 
+          onPress={() => {
+            setPlayerMove("ROCK");
+            setOpponentMove(randomizeMove());
+            navigation.navigate("OfflineWinner");
+          }}/>
+        
+          <ScissorsButton
             onPress={() => {
               setPlayerMove("SCISSORS");
               setOpponentMove(randomizeMove());
               navigation.navigate("OfflineWinner");
             }}
           />
-          <OurButton
-            title="Påse"
+          <PaperButton
             onPress={() => {
               setPlayerMove("PAPER");
               setOpponentMove(randomizeMove());

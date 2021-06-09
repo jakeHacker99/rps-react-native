@@ -4,7 +4,9 @@ import { StyleSheet, Text, View } from "react-native";
 
 import AppContext from "../Context/AppContext";
 import { PlayerMove } from "../Data/PlayerMove";
-import OurButton from "../components/OurButton";
+import RockButton from "../components/RockButton";
+import ScissorsButton from "../components/ScissorsButton";
+import PaperButton from "../components/PaperButton";
 
 export function OnlineGameScreenOpponent() {
   const navigation = useContext(NavigationContext);
@@ -17,22 +19,19 @@ export function OnlineGameScreenOpponent() {
         <Text style={styles.h1}>Sten Sax Påse</Text>
         <Text style={styles.h2}>Välj sten sax eller påse för att spela</Text>
         <View style={styles.lowRow}>
-        <OurButton
-            title="Sten"
+        <RockButton
             onPress={() => {
               setOpponentMove("ROCK");
               navigation.navigate("Winner2");
             }}
           />
-          <OurButton
-            title="Sax"
+          <ScissorsButton
             onPress={() => {
               setOpponentMove("SCISSORS");
               navigation.navigate("Winner2");
             }}
           />
-          <OurButton
-            title="Påse"
+          <PaperButton
             onPress={() => {
               setOpponentMove("PAPER");
               navigation.navigate("Winner2");

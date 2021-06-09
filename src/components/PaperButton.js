@@ -3,7 +3,7 @@ import { TouchableOpacity } from "react-native";
 import { StyleSheet, Text, View } from "react-native";
 
 
-export function OurButton({ onPress, title }) {
+function PaperButton({onPress}) {
 
     return (
         <View>
@@ -12,13 +12,14 @@ export function OurButton({ onPress, title }) {
                 style={styles.buttonStyle}>
                 <Text
                     style={styles.textStyle}
-                >{title}</Text>
+                >Påse</Text>
             </TouchableOpacity>
 
         </View>
     );
 }
-export default OurButton
+export default PaperButton
+
 const styles = StyleSheet.create({
     buttonStyle: {
         borderWidth: 1,
@@ -28,8 +29,11 @@ const styles = StyleSheet.create({
         marginRight: 20,
         width: 70,
         height: 50,
+        shadowColor:'#338dff',
+        shadowOpacity: 0.5,
+        shadowRadius: 10
     },
-
+    
     textStyle: {
         justifyContent: "center",
         textAlign: 'center',
