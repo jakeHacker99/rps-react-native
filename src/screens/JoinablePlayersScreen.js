@@ -1,13 +1,12 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext } from "react";
+import { StyleSheet, Text, View, FlatList } from "react-native";
 
+import AppContext from "../Context/AppContext";
 import { NavigationContext } from "@react-navigation/native";
 
-import { StyleSheet, Text, View, FlatList } from "react-native";
 import { Icon, Button } from "react-native-elements";
-import AppContext from "../Context/AppContext";
 import { Platform } from "react-native";
 import { StartGame } from "../Data/StartGame";
-import { OpponentMove } from "../Data/OpponentMove";
 
 export function JoinablePlayersScreen() {
   const navigation = useContext(NavigationContext);
@@ -64,11 +63,6 @@ export function JoinablePlayersScreen() {
 }
 
 const styles = StyleSheet.create({
-  container: {
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
-  },
   fixBackground: {
     backgroundColor: "#fff",
   },
