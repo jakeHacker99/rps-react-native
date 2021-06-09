@@ -63,9 +63,7 @@ const styles = StyleSheet.create({
   fixBackground: {
     backgroundColor: "#fff",
   },
-  row: {
-    flexDirection: "row",
-  },
+
   box: {
     alignItems: "center",
     alignContent: "center",
@@ -77,9 +75,7 @@ const styles = StyleSheet.create({
     marginTop: 120,
     justifyContent: "center",
   },
-  buttonColor: {
-    backgroundColor: "#00ff00",
-  },
+
   title: {
     fontSize: 33,
     marginTop: 50,
