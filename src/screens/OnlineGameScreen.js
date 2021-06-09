@@ -9,7 +9,7 @@ import ScissorsButton from "../components/ScissorsButton";
 import PaperButton from "../components/PaperButton";
 export function OnlineGameScreen() {
   const navigation = useContext(NavigationContext);
-  const { setPlayerMove, setError, error } = useContext(AppContext);
+  const { setPlayerMove, error } = useContext(AppContext);
 
   return (
     <View style={styles.fixBackground}>
@@ -46,7 +46,6 @@ export function OnlineGameScreen() {
           </View>
         </View>
       )}
-
       <JoinGame />
     </View>
   );
