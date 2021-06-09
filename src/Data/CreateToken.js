@@ -3,7 +3,7 @@ import { View } from "react-native";
 import AppContext from "../Context/AppContext";
 
 export function CreateToken() {
-  const { token, setToken } = React.useContext(AppContext);
+  const { setToken } = React.useContext(AppContext);
 
   const url = "http://192.168.1.202:8080/auth/token";
 
