@@ -17,7 +17,6 @@ export function PcWinnerScreen() {
     <View style={styles.fixBackground}>
       <View style={styles.container}>
         <GetWinner />
-
         <ShowResult />
       </View>
 
