@@ -1,11 +1,8 @@
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
 import { ScrollView } from "react-native";
 import { StyleSheet, Text, View, Image } from "react-native";
-import AppContext from "../Context/AppContext";
 
 export function ListGamesScreen() {
-  const { nickName, opponentName } = useContext(AppContext);
-
   const [game] = useState([
     { name: "Christian", key: "1" },
     { name: "Datorn", key: "2" },
@@ -40,11 +37,6 @@ export function ListGamesScreen() {
 }
 
 const styles = StyleSheet.create({
-  container: {
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
-  },
   fixBackground: {
     backgroundColor: "#fff",
   },
