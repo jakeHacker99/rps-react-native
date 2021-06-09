@@ -9,18 +9,19 @@ import ScissorsButton from "../components/ScissorsButton";
 import PaperButton from "../components/PaperButton";
 export function OnlineGameScreen() {
   const navigation = useContext(NavigationContext);
-  const { setPlayerMove, error } = useContext(AppContext);
+  const { setPlayerMove, error, token } = useContext(AppContext);
 
   return (
     <View style={styles.fixBackground}>
-      {error != "" && (
-        <View>
-          <ActivityIndicator size="large" color="#0000ff" />
-          <h2>please start backend</h2>
-        </View>
-      )}
+      {error != "" ||
+        (token === "" && (
+          <View>
+            <ActivityIndicator size="large" color="#0000ff" />
+            <Text styles={styles.h2}>please start backend</Text>
+          </View>
+        ))}
 
-      {error === "" && (
+      {error === "" && token != "" && (
         <View style={styles.container}>
           <Text style={styles.h1}>Sten Sax Påse</Text>
           <Text style={styles.h2}>Välj sten sax eller påse för att spela</Text>
@@ -46,7 +47,7 @@ export function OnlineGameScreen() {
           </View>
         </View>
       )}
-      <JoinGame />
+      {error === "" && token != "" && <JoinGame />}
     </View>
   );
 }
