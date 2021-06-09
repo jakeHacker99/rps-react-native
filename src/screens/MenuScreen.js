@@ -5,7 +5,6 @@ import { NavigationContext } from "@react-navigation/native";
 
 import { Button } from "react-native-elements";
 import AppContext from "../Context/AppContext";
-import { StartGame } from "../Data/StartGame";
 
 export function MenuScreen() {
   const navigation = useContext(NavigationContext);
@@ -51,7 +50,6 @@ export function MenuScreen() {
           />
         </View>
       </View>
-      <StartGame />
     </View>
   );
 }

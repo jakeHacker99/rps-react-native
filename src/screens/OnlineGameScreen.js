@@ -4,6 +4,7 @@ import { StyleSheet, Text, View } from "react-native";
 
 import AppContext from "../Context/AppContext";
 import OurButton from "../components/OurButton"
+import { JoinGame } from "../Data/JoinGame";
 export function OnlineGameScreen() {
   const navigation = useContext(NavigationContext);
   const { setPlayerMove } = useContext(AppContext);
@@ -38,6 +39,7 @@ export function OnlineGameScreen() {
           />
         </View>
       </View>
+      <JoinGame />
     </View>
   );
 }

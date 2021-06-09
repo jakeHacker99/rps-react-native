@@ -4,9 +4,9 @@ import { NavigationContext } from "@react-navigation/native";
 
 import { StyleSheet, Text, View, FlatList } from "react-native";
 import { Icon, Button } from "react-native-elements";
-import { JoinGame } from "../Data/JoinGame";
 import AppContext from "../Context/AppContext";
 import { Platform } from "react-native";
+import { StartGame } from "../Data/StartGame";
 
 export function JoinablePlayersScreen() {
   const navigation = useContext(NavigationContext);
@@ -57,7 +57,7 @@ export function JoinablePlayersScreen() {
           />
         </View>
       </View>
-      <JoinGame />
+      <StartGame />
     </View>
   );
 }
