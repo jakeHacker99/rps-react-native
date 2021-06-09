@@ -1,13 +1,14 @@
 import React, { useContext } from "react";
-import { NavigationContext } from "@react-navigation/native";
-import RNRestart from "react-native-restart";
-
 import { StyleSheet, View, Platform } from "react-native";
+
+import { NavigationContext } from "@react-navigation/native";
+
 import { GetWinner } from "../Logic/GetWinner";
 
 import { Button } from "react-native-elements";
-import AppContext from "../Context/AppContext";
 import { OpponentMove } from "../Data/OpponentMove";
+
+import AppContext from "../Context/AppContext";
 import ShowResult from "../Logic/ShowResult";
 
 export function WinnerScreenOnline() {
