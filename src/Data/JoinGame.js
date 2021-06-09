@@ -1,6 +1,5 @@
-import React, { useState, useEffect, useContext } from "react";
-import { View, StyleSheet, Text } from "react-native";
-import { colors } from "react-native-elements";
+import React, { useEffect, useContext } from "react";
+import { View,  } from "react-native";
 import AppContext from "../Context/AppContext";
 
 export function JoinGame() {

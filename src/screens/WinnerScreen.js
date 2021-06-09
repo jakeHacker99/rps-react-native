@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { NavigationContext } from "@react-navigation/native";
 
-import { StyleSheet, Text, View, Image } from "react-native";
+import { StyleSheet, View  } from "react-native";
 import { GetWinner } from "../Logic/GetWinner";
 
 import { Button } from "react-native-elements";
@@ -11,8 +11,7 @@ import ShowResult from "../Logic/ShowResult";
 export function WinnerScreen() {
   const navigation = useContext(NavigationContext);
 
-  const { setNickName, playerMove, opponentName, opponentMove } =
-    useContext(AppContext);
+  const { setNickName} =  useContext(AppContext);
 
   return (
     <View style={styles.fixBackground}>
