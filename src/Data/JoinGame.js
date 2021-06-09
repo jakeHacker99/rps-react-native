@@ -26,14 +26,5 @@ export function JoinGame() {
         console.error(error);
       });
   }, []);
-  return <View style={styles.container}></View>;
+  return <View></View>;
 }
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
-    marginRight: Platform.OS === "android" ? "250" : "250",
-  },
-});
