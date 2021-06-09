@@ -9,7 +9,7 @@ import PaperButton from "../components/PaperButton";
 
 export function OfflineGameScreen() {
   const navigation = useContext(NavigationContext);
-  const { playerMove, setPlayerMove, setOpponentMove } = useContext(AppContext);
+  const { setPlayerMove, setOpponentMove } = useContext(AppContext);
   const availableMoves = ["PAPER", "SCISSORS", "ROCK"];
 
   function randomizeMove() {
@@ -26,14 +26,14 @@ export function OfflineGameScreen() {
           Välj sten sax eller påse för att spela
         </Text>
         <View style={styles.lowRow}>
+          <RockButton
+            onPress={() => {
+              setPlayerMove("ROCK");
+              setOpponentMove(randomizeMove());
+              navigation.navigate("OfflineWinner");
+            }}
+          />
 
-          <RockButton 
-          onPress={() => {
-            setPlayerMove("ROCK");
-            setOpponentMove(randomizeMove());
-            navigation.navigate("OfflineWinner");
-          }}/>
-        
           <ScissorsButton
             onPress={() => {
               setPlayerMove("SCISSORS");
@@ -74,19 +74,7 @@ const styles = StyleSheet.create({
     marginLeft: 20,
     backgroundColor: "#fff",
   },
-  box: {
-    alignItems: "center",
-    alignContent: "center",
-    justifyContent: "center",
-    flexDirection: "column",
-  },
-  buttomRow: {
-    flexDirection: "row",
-    marginTop: 120,
-    justifyContent: "center",
-    marginBottom: 250,
-    marginLeft: 20,
-  },
+
   textStyle: {
     fontSize: 22,
     marginTop: 15,
