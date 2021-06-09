@@ -1,23 +1,23 @@
 import React, { useContext } from "react";
-import { NavigationContext } from "@react-navigation/native";
+import { StyleSheet, View } from "react-native";
+import { Button } from "react-native-elements";
 
-import { StyleSheet, View  } from "react-native";
+import { NavigationContext } from "@react-navigation/native";
+import AppContext from "../Context/AppContext";
+
 import { GetWinner } from "../Logic/GetWinner";
 
-import { Button } from "react-native-elements";
-import AppContext from "../Context/AppContext";
 import ShowResult from "../Logic/ShowResult";
 
 export function WinnerScreen() {
   const navigation = useContext(NavigationContext);
 
-  const { setNickName} =  useContext(AppContext);
+  const { setNickName } = useContext(AppContext);
 
   return (
     <View style={styles.fixBackground}>
       <View style={styles.container}>
         <GetWinner />
-
         <ShowResult />
       </View>
 
@@ -61,15 +61,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
     marginTop: 50,
   },
-  row: {
-    flexDirection: "row",
-  },
-  box: {
-    alignItems: "center",
-    alignContent: "center",
-    justifyContent: "center",
-    flexDirection: "column",
-  },
+
   buttomRow: {
     flexDirection: "row",
     marginTop: 120,
@@ -77,11 +69,7 @@ const styles = StyleSheet.create({
     marginBottom: 250,
     marginLeft: 20,
   },
-  pic: {
-    width: 200,
-    height: 200,
-    marginTop: 40,
-  },
+
   styleButton: {
     height: 70,
     width: 70,
