@@ -11,7 +11,8 @@ import PaperButton from "../components/PaperButton";
 export function OnlineGameScreenOpponent() {
   const navigation = useContext(NavigationContext);
 
-  const { setOpponentMove, opponentName } = useContext(AppContext);
+  const { setOpponentMove, opponentName, pickedPlayer } =
+    useContext(AppContext);
 
   return (
     <View style={styles.fixBackground}>
@@ -19,7 +20,7 @@ export function OnlineGameScreenOpponent() {
         <Text style={styles.h1}>Sten Sax Påse</Text>
         <Text style={styles.h2}>Välj sten sax eller påse för att spela</Text>
         <View style={styles.lowRow}>
-        <RockButton
+          <RockButton
             onPress={() => {
               setOpponentMove("ROCK");
               navigation.navigate("Winner2");

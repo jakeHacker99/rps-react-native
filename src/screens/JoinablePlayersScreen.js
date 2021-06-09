@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 
 import { NavigationContext } from "@react-navigation/native";
 
@@ -7,6 +7,7 @@ import { Icon, Button } from "react-native-elements";
 import AppContext from "../Context/AppContext";
 import { Platform } from "react-native";
 import { StartGame } from "../Data/StartGame";
+import { OpponentMove } from "../Data/OpponentMove";
 
 export function JoinablePlayersScreen() {
   const navigation = useContext(NavigationContext);

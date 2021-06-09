@@ -5,7 +5,7 @@ import AppContext from "../Context/AppContext";
 export function StartGame() {
   const { token, setGameId } = React.useContext(AppContext);
 
-  const url = "http://192.168.1.181:8080/games/start";
+  const url = "http://192.168.1.202:8080/games/start";
 
   useEffect(() => {
     fetch(url, {
@@ -19,9 +19,7 @@ export function StartGame() {
     })
       .then((res) => res.json())
       .then((res) => {
-        setTimeout(() => {
-          console.log(res);
-        }, 3000);
+        console.log(res);
         let gameId = JSON.parse(JSON.stringify(res.id));
         setGameId(gameId);
       })

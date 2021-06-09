@@ -7,12 +7,8 @@ export function ListGamesScreen() {
   const { nickName, opponentName } = useContext(AppContext);
 
   const [game] = useState([
-    { name: nickName, key: "1" },
-    { name: opponentName, key: "2" },
-    { name: nickName, key: "8" },
-    { name: nickName, key: "4" },
-    { name: nickName, key: "5" },
-    { name: nickName, key: "6" },
+    { name: "Christian", key: "1" },
+    { name: "Datorn", key: "2" },
   ]);
 
   return (

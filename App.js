@@ -107,6 +107,8 @@ export default function App() {
   const [gameId, setGameId] = useState("");
   const [opponentMove, setOpponentMove] = useState("");
   const [opponentName, setOpponentName] = useState("Datorn");
+  const [error, setError] = useState("");
+  const [pickedPlayer, setPickedPlayer] = useState("");
 
   const allvalues = {
     nickName,
@@ -123,6 +125,10 @@ export default function App() {
     setOpponentMove,
     gameId,
     setGameId,
+    error,
+    setError,
+    pickedPlayer,
+    setPickedPlayer,
   };
 
   return (

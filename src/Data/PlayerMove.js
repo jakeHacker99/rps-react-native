@@ -10,10 +10,9 @@ export function PlayerMove() {
     setNickName,
     nickName,
     setOpponentName,
-    opponentName,
   } = React.useContext(AppContext);
 
-  const url = `http://192.168.1.181:8080/games/move/${playerMove}`;
+  const url = `http://192.168.1.202:8080/games/move/${playerMove}`;
 
   useEffect(() => {
     fetch(url, {
@@ -31,9 +30,7 @@ export function PlayerMove() {
         setNickName(nickName);
         setOpponentName("Christian");
 
-        setTimeout(() => {
-          console.log("game: ", res);
-        }, 3000);
+        console.log(res);
       })
 
       .catch((error) => console.error(error));

@@ -33,11 +33,11 @@ export function WinnerScreenOnline() {
           onPress={() => {
             {
               Platform.OS === "android"
-                ? (setNickName(""), navigation.navigate("Start"))
-                : window.location.reload();
+                ? navigation.navigate("Start")
+                : console.log("nytt spel skapat");
             }
 
-            navigation.navigate("Start");
+            navigation.navigate("Joina");
           }}
         />
         <Button
@@ -46,9 +46,12 @@ export function WinnerScreenOnline() {
           style={styles.styleButton}
           type={"outline"}
           onPress={() => {
-            setNickName(""),
-              setOpponentName("Datorn"),
-              navigation.navigate("Start");
+            {
+              Platform.OS === "android"
+                ? (setNickName(""), navigation.navigate("Start"))
+                : window.location.reload();
+            }
+            setOpponentName("Datorn"), navigation.navigate("Start");
           }}
         />
       </View>

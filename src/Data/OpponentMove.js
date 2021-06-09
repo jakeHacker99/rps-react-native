@@ -6,7 +6,7 @@ export function OpponentMove() {
   const { opponentToken, opponentMove, setOpponentMove } =
     React.useContext(AppContext);
 
-  const url = `http://192.168.1.181:8080/games/move/${opponentMove}`;
+  const url = `http://192.168.1.202:8080/games/move/${opponentMove}`;
 
   useEffect(() => {
     fetch(url, {
@@ -22,8 +22,8 @@ export function OpponentMove() {
       .then((res) => {
         setOpponentMove(opponentMove);
         setTimeout(() => {
-          console.log("game: ", res);
-        }, 3000);
+          console.log(res);
+        }, 2000);
       })
 
       .catch((error) => console.error(error));
