@@ -1,4 +1,4 @@
-import React, { useState, createContext } from "react";
+import React, { useState } from "react";
 import { StyleSheet, View } from "react-native";
 
 import { NavigationContainer } from "@react-navigation/native";
@@ -6,13 +6,15 @@ import { createStackNavigator } from "@react-navigation/stack";
 
 import { StartScreen } from "./src/Screens/StartScreen";
 import { MenuScreen } from "./src/Screens/MenuScreen";
-import { OfflineGameScreen } from "./src/Screens/OfflineGameScreen";
+
 import { OnlineGameScreen } from "./src/Screens/OnlineGameScreen";
 import { OnlineGameScreenOpponent } from "./src/Screens/OnlineGameScreenOpponent";
 
+import { OfflineGameScreen } from "./src/Screens/OfflineGameScreen";
+import { PcWinnerScreen } from "./src/Screens/PcWinnerScreen";
+
 import { WinnerScreen } from "./src/Screens/WinnerScreen";
 import { WinnerScreenOnline } from "./src/Screens/WinnerScreenOnline";
-import { PcWinnerScreen } from "./src/Screens/PcWinnerScreen";
 
 import { ListGamesScreen } from "./src/Screens/ListGamesScreen";
 import { JoinablePlayersScreen } from "./src/Screens/JoinablePlayersScreen";
@@ -27,10 +29,10 @@ function Start() {
   );
 }
 
-function History() {
+function Menu() {
   return (
     <View style={styles.container}>
-      <ListGamesScreen />
+      <MenuScreen />
     </View>
   );
 }
@@ -42,15 +44,6 @@ function Joina() {
     </View>
   );
 }
-
-function Menu() {
-  return (
-    <View style={styles.container}>
-      <MenuScreen />
-    </View>
-  );
-}
-
 function Online() {
   return (
     <View style={styles.container}>
@@ -65,15 +58,6 @@ function Online2() {
     </View>
   );
 }
-
-function Offline() {
-  return (
-    <View style={styles.container}>
-      <OfflineGameScreen />
-    </View>
-  );
-}
-
 function Winner() {
   return (
     <View style={styles.container}>
@@ -88,6 +72,15 @@ function Winner2() {
     </View>
   );
 }
+
+function Offline() {
+  return (
+    <View style={styles.container}>
+      <OfflineGameScreen />
+    </View>
+  );
+}
+
 function OfflineWinner() {
   return (
     <View style={styles.container}>
@@ -95,20 +88,26 @@ function OfflineWinner() {
     </View>
   );
 }
+
+function History() {
+  return (
+    <View style={styles.container}>
+      <ListGamesScreen />
+    </View>
+  );
+}
+
 const Stack = createStackNavigator();
 
 export default function App() {
   const [opponentToken, setOpponentToken] = useState("");
-
   const [token, setToken] = useState("");
   const [nickName, setNickName] = useState("");
   const [playerMove, setPlayerMove] = useState("");
-
   const [gameId, setGameId] = useState("");
   const [opponentMove, setOpponentMove] = useState("");
   const [opponentName, setOpponentName] = useState("Datorn");
   const [error, setError] = useState("");
-  const [pickedPlayer, setPickedPlayer] = useState("");
 
   const allvalues = {
     nickName,
@@ -127,8 +126,6 @@ export default function App() {
     setGameId,
     error,
     setError,
-    pickedPlayer,
-    setPickedPlayer,
   };
 
   return (
@@ -137,15 +134,16 @@ export default function App() {
         <Stack.Navigator>
           <Stack.Screen name="Start" component={Start} />
           <Stack.Screen name="Menu" component={Menu} />
-          <Stack.Screen name="Offline" component={Offline} />
+
+          <Stack.Screen name="Joina" component={Joina} />
           <Stack.Screen name="Online" component={Online} />
           <Stack.Screen name="Online2" component={Online2} />
 
-          <Stack.Screen name="OfflineWinner" component={OfflineWinner} />
-          <Stack.Screen name="Winner2" component={Winner2} />
           <Stack.Screen name="Winner" component={Winner} />
+          <Stack.Screen name="Winner2" component={Winner2} />
 
-          <Stack.Screen name="Joina" component={Joina} />
+          <Stack.Screen name="Offline" component={Offline} />
+          <Stack.Screen name="OfflineWinner" component={OfflineWinner} />
           <Stack.Screen name="History" component={History} />
         </Stack.Navigator>
       </NavigationContainer>
