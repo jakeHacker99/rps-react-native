@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
-import { Platform } from "react-native";
-import { View, StyleSheet } from "react-native";
+import { View } from "react-native";
 import AppContext from "../Context/AppContext";
 
 export function JoinGame() {

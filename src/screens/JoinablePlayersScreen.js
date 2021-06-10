@@ -13,9 +13,10 @@ export function JoinablePlayersScreen() {
   const { setOpponentName } = React.useContext(AppContext);
 
   function handleName(key) {
-    const name = "";
-    data[key].name = name;
-    setOpponentName(name);
+    const choosenOpponent = JSON.stringify(data[key].name);
+    const nickName = choosenOpponent.replace(/"/g, "");
+    setOpponentName(nickName);
+    return nickName;
   }
 
   const data = [

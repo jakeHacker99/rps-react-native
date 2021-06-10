@@ -8,12 +8,12 @@ import AppContext from "../Context/AppContext";
 
 export function MenuScreen() {
   const navigation = useContext(NavigationContext);
-  const { nickName } = useContext(AppContext);
+  const { nickName, setOpponentName } = useContext(AppContext);
 
   return (
     <View style={styles.fixBackground}>
       <View style={styles.container}>
-        <Text style={styles.title}>RPS ➣ {nickName}</Text>
+        <Text style={styles.title}>RPS - {nickName}</Text>
       </View>
       <View style={styles.box}>
         <Button
@@ -29,7 +29,9 @@ export function MenuScreen() {
           title=" Spela Dator"
           style={styles.offlineButton}
           type={"outline"}
-          onPress={() => navigation.navigate("Offline")}
+          onPress={() => {
+            setOpponentName("Datorn"), navigation.navigate("Offline");
+          }}
         />
 
         <View style={styles.buttomRow}>

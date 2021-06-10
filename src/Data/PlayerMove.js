@@ -3,14 +3,8 @@ import { View, Text } from "react-native";
 import AppContext from "../Context/AppContext";
 
 export function PlayerMove() {
-  const {
-    token,
-    playerMove,
-    setPlayerMove,
-    setNickName,
-    nickName,
-    setOpponentName,
-  } = React.useContext(AppContext);
+  const { token, playerMove, setPlayerMove, setNickName, nickName, setGameId } =
+    React.useContext(AppContext);
 
   const url = `http://192.168.1.202:8080/games/move/${playerMove}`;
 
@@ -28,13 +22,12 @@ export function PlayerMove() {
       .then((res) => {
         setPlayerMove(playerMove);
         setNickName(nickName);
-        setOpponentName("Christian");
 
         console.log(res);
       })
 
       .catch((error) => console.error(error));
-  }, []);
+  }, [setPlayerMove]);
 
   return (
     <View>

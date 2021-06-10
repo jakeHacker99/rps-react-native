@@ -33,8 +33,8 @@ export function WinnerScreenOnline() {
           onPress={() => {
             {
               Platform.OS === "android"
-                ? (setOpponentName("Datorn"), navigation.navigate("Start"))
-                : (window.location.reload(), navigation.navigate("Start"));
+                ? navigation.navigate("Start")
+                : navigation.navigate("Start");
             }
 
             navigation.navigate("Menu");

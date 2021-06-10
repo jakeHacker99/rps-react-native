@@ -9,7 +9,7 @@ export default function ShowResult() {
   return (
     <View style={styles.box}>
       <Text style={{ fontSize: 13, marginTop: 30 }}>
-        {opponentName} valde: {opponentMove}
+        {opponentName} valde - {opponentMove.toLowerCase()}
       </Text>
       {playerMove === "PAPER" && (
         <Image
