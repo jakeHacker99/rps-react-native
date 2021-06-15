@@ -6,9 +6,29 @@ import { NavigationContext } from "@react-navigation/native";
 import { Button } from "react-native-elements";
 import AppContext from "../Context/AppContext";
 
+import * as Localization from "expo-localization";
+import i18n from "i18n-js";
+
 export function MenuScreen() {
   const navigation = useContext(NavigationContext);
   const { nickName, setOpponentName } = useContext(AppContext);
+
+  i18n.translations = {
+    sv: {
+      PlayOnline: "Spela Online",
+      PlayPc: "Spela Dator",
+    },
+    en: {
+      PlayOnline: "Online Game",
+      PlayPc: "Offline Game",
+    },
+    ar: {
+      PlayOnline: "لعبه صديق",
+      PlayPc: "كمبيوتر",
+    },
+  };
+  i18n.locale = Localization.locale;
+  i18n.fallbacks = true;
 
   return (
     <View style={styles.fixBackground}>
@@ -17,7 +37,7 @@ export function MenuScreen() {
       </View>
       <View style={styles.box}>
         <Button
-          title="Spela Online"
+          title={i18n.t("PlayOnline")}
           style={styles.onlineButton}
           type={"outline"}
           onPress={() => {
@@ -26,7 +46,7 @@ export function MenuScreen() {
         />
 
         <Button
-          title=" Spela Dator"
+          title={i18n.t("PlayPc")}
           style={styles.offlineButton}
           type={"outline"}
           onPress={() => {
